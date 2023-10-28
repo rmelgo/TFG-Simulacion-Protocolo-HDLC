@@ -12,56 +12,92 @@ Para el desarrollo de este proyecto, se permite total libertad a la hora de eleg
 
 Al tratarse de un Trabajo de Fin de Grado, el desarrollo no se basará exclusivamente en la cosntrucción de un producto software, si no que se realizaran exhautivos trabajos de investigación, análisis, diseño, documentación, planificación, etc.
 
+# - Comentarios sobre el entorno de desarrollo
+
+Para ejecutar este programa, se requerirá de una distribución del Sistema Operativo **Windows**.    
+
+Para la elaboración y compilación de este simulador, se ha utilizado el framework **Visual Studio 2019**. 
+
+En el repositorio se adjuntará un fichero ejecutable, de manera que no será necesario disponer de ninguna herramienta para la ejecución del simulador. Simplemente será necerario hacer uso del Sistema Operativo **Windows**. 
+
 # Comentarios sobre el material adjuntado
 
+El material adjuntado para la realización de este proyecto es tan amplia, que se va a clasificar en 2 secciones:
 
+## Material teórico
+
+En esta sección del proyecto, se adjuntarán una serie de documentos con distintos aspectos relevantes para la construcción del simulador del protocolo HDLC. Estos documentos se encuentran dentro de la carpeta de **Documentación** que se encuentra en el repositorio. Esta carpeta contiene los siguientes documentos:
+
+- Un documento llamado ***Memoria TFG.pdf*** en el que se establece una *memoria general* del proyecto desarrollada. Esta memoria incluye:
+
+  - Los objetivos a cumplir en el desarrollo del proyecto
+  - Los conceptos teóricos fundamentales del protocolo HDLC
+  - Trabajos relacionados
+  - Métodologias, técnicas y herramientas utilizadas
+  - Aspectos relevantes del desarrollo del proyecto (ciclo de vida)
+  - Conclusiones y líneas futuras
+    
+- Un documento llamado ***Anexo I_ Plan de proyecto software.pdf*** en el que se realiza una *planificación* del proyecto. Esta planificación consta de:
+
+  - Una estimación del esfuerzo del proyecto
+  - Una planificación temporal del proyecto junto con un ánalisis de la planificación temporal (Diagrama de Gantt)
+
+- Un documento llamado ***Anexo II.a_ Especificación de requisitos software.pdf*** en el que se realizan tareas relacionadas con la disciplina de *Requisitos*. Estas tareas son:
+
+  - Una elicitación de requisitos la definición formal de los objetivos del sistema y elaboración del diagrama de casos de uso
+  - Actividades relacionadas con el Desarrollo Centrado en el Usuario
+ 
+- Un documento llamado ***Anexo II.b_ Análisis de requisitos.pdf*** en el que se realizan tareas relacionadas con la disciplina de *Análisis*. Estas tareas son:  
+ 
+  - Un análisis de los requisitos previamente identificados y elaboración del diagrama de clases del sistema
+  - Un análisis de tareas realizadas por el usuario en el futuro sistema
+ 
+- Un documento llamado ***Anexo III_ Especificación del diseño.pdf*** en el que se realizan tareas relacionadas con la disciplina de *Diseño*. Estas tareas son:  
+
+  - Realización del diseño de la estructura del sistema y la relación de los casos de uso previamente identificados a nivel de diseño
+  - Realización de actividades de diseño de la interfaz de la aplicación.
+
+- Un documento llamado ***Anexo IV_ Documentación técnica de programación.pdf*** en el que se incluye información relevante sobre la programación del simulador. Esta información es la siguiente:
+
+  - Bibliotecas externas utilizadas
+  - Estructura del código fuente de la aplicación
+  - Colección de métodos utilizado (incluyendo nombre, parámetros, valores de retorno, clase en la que se encuentran y una breve descripción)
+
+- Un documento llamado ***Anexo V_ Manual de usuario.pdf*** en el que se incluye un manual del usuario donde se explican las distintas funcionalidades que incluye el simulador así como el aspecto visual del simulador en disintos contextos.
+
+## Implementación
+
+En esta sección del proyecto, se adjuntarán una serie de ficheros que forman parte de la implementación del simulador. Estos ficheros se encuentran dentro de la carpeta de **Implementación** que se encuentra en el repositorio. Esta carpeta contiene los siguientes ficheros:
+
+- Una carpeta llamada ***Simulador HDLC - Ejecutable y librerias necesarias*** que contiene el material mínimo para ejecutar el simulador HDLC y hacer uso de todas las funcionalidades. Esta carpeta incluye los siguientes ficheros:
+
+  - Un fichero llamado ***Simulador HDLC.exe** el cual se trata de un fichero ejecutable que contiene la implementación del simulador HDLC.
+  - Un fichero llamado ***Simulador HDLC.exe.config** que contiene una serie de configuraciones necesarias para ejecutar correctamente el simulador.
+  - Un fichero llamado ***Simulador HDLC.pdb*** que contiene información de depuración sobre la ejeución del simulador.
+  - Un fichero llamado ***Newtonsoft.Json.dll*** el cual se trata de una libreria de enlazado dinámico con funciones necesarias para el manejo de objetos JSON, los cuales son utilizados por el simulador.
+  - Un fichero llamado ***Newtonsoft.Json.xml*** que contiene información sobre el contenido de la libreria de enlazado dinámico ***Newtonsoft.Json.dll***.
+  - Un fichero llamado ***Imagen_Captura_Tráfico.png*** con un ejemplo de captura de tráfico guardado como imagen.
+  - Un par de ficheros ***prueba_captura.txt*** y ***prueba_captura.txt (2)*** que contiene información sobre una captura de tráfico desde el punto de vista de las 2 máquinas involucradas en el enlace.
+ 
+- Una carpeta llamada ***Simulador HDLC - Proyecto WPF completo.zip*** que contiene el proyecto WPF completo con la implementación del simulador del protocolo HDLC con todas las clases involucradas.
 
 # - Estructura de la aplicación
 
-La aplicación se encuentra estructurada en los siguientes ficheros:
+Al realizar la implementación del simulador en el entorno de WPF, se van a tener 3 tipos de ficheros:
 
-- Un fichero llamado ***Practica_final.java***, que se encarga de mostrar el menú principal de la aplicación.
-- Un fichero llamado ***View.java***, que se encarga de realizar la interacción con el usuario (representación de información y petición de datos al usuario asi como la presentación de los submenús).
-- Un fichero llamado ***Controller.java***, que se encarga de controlar el flujo de información entre el usuario y el modelo de la aplicación.
-- Un fichero llamado ***Jugadora.java***, que se encarga de almacenar los datos relativos a una jugadora:  
-  - Nombre
-  - Posición
-  - Dorsal
-  - Fecha de nacimiento
-  - Nacionalidad
-  - Altura
- 
-- Un fichero llamado ***Equipo.java***, que se encarga de almacenar los datos relativos a un equipo:    
-  - Nombre
-  - Dirección
-  - Teléfono
-  - Web
-  - Email
-  - Lista de jugadoras  
-- Un fichero llamado ***Jornada.java***, que se encarga de almacenar los datos relativos a una jornada de la liga:
-  - Número de la jornada
-  - Fecha
-  - Lista de partidos de la jornada
-  - Clasificación asociada a dicha jornada
-- Un fichero llamado ***Datos_equipo.java***, que se encarga de almacenar los datos relativos de un equipo en la clasificación de la liga:
-  - Nombre del equipo
-  - Número de partidos jugados
-  - Número de partidos ganados
-  - Número de partidos perdidos
-  - Puntos a favor
-  - Puntos en contra
-  - Puntos en la clasificación
-- Un fichero llamado ***Partido.java***, que se encarga de almacenar los datos relativos a un partido:
-  - Nombre equipo local
-  - Nombre equipo visitante
-  - Puntos equipo local
-  - Puntos equipo visitante
-  - Fecha
-  - Hora
-- Un fichero llamado ***LigaFem.java***, que se encarga de almacenar los datos de una temporada completa de la liga:
-  - Nombre de la temporada
-  - Lista de jornadas
-  - Lista de equipos
+- Ficheros ***.xaml*** con la representación visual de las distintas ventanas del simulador.
+- Ficheros ***.xaml.cs*** con la lógica interna del simulador.
+- Ficheros ***.cs*** que actuan de modelos y almacenan los datos del simulador.
+
+Estos ficheros se van a agrupar en distintas clases. El diagrama de clases del proyecto es la siguiente:
+
+![Estructura](https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/0091fe1a-4de7-444b-8897-68196df8ed94)
+
+En este diagrama, existen 3 tipos de clases:
+
+- **Clases del sistema**: Son las que se encuentran en la primera fila
+- **Clases ventana**: Incluyen los ficheros *.xaml* y *.xaml.cs*. Se encuentran en la segunda, tercera y cuarta fila.
+- **Clases modelo**: Incluyen los ficheros *.cd*. Se encuentran en las últimas 2 filas.
 
 # - Funcionalidades de la aplicación
 
@@ -105,13 +141,6 @@ En el arranque de la aplicación, se comprobará si existen datos previamente gu
 - **Salida de la aplicación**  
 Cuando el usuario salga de la aplicación, automaticamente se guardaran todos los datos de la aplicación en un fichero con formato binario llamado ***binario.txt*** dentro de la la subcarpeta ***binarios*** dentro de la carpeta *"LigFemBal"*.
   
-
-# - Comentarios sobre el entorno de desarrollo
-
-Para la elaboración y compilación de este programa, se ha utilizado el framework **Netbeans** en su versión **12.0** y la version de **Java 14**. 
-
-De esta manera, una alternativa para ejecutar la aplicación es utilizar la consola de **Netbeans** pero siempre es posible ejecutar la aplicación por la terminal utilizando los comandos adecuados.
-
 # - Ejemplo de ejecución
 
 En las siguientes imagenes, se muestra un ejemplo del uso y funcionamiento de la aplicación:    
