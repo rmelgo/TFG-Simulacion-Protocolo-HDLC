@@ -99,99 +99,68 @@ En este diagrama, existen 3 tipos de clases:
 - **Clases ventana**: Incluyen los ficheros *.xaml* y *.xaml.cs*. Se encuentran en la segunda, tercera y cuarta fila.
 - **Clases modelo**: Incluyen los ficheros *.cd*. Se encuentran en las últimas 2 filas.
 
-# - Funcionalidades de la aplicación
+# - Funcionalidades del simulador
 
-Todos los datos que genera o utiliza la aplicación se encuentran en un una carpeta llamada *"LigFemBal"* que debe situarse obligatoriamente en el escritorio. En caso contrario, la aplicación no funcionará correctamente.
+## Pantalla principal
 
-En el arranque de la aplicación, se comprobará si existen datos previamente guardados dentro de la subcarpeta *"binarios"* dentro de la carpeta *"LigFemBal"*. Si existen datos guardados, se cargaran dichos datos en la aplicación. Logicamente, la primera vez que se ejecute la aplicación, la carpeta *"binarios"* estará vacia.
+Al abrir el fichero ***Simulador HDLC.exe***, inicialmente se presentará una ventana similar a la que se presenta en la siguiente imagen:
 
-- **Gestión de la temporada** 
+![Ejemplo ejecucion 1](https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/fabc26a8-64c1-4b69-ae1d-633d069cdada)
+
+La ventana principal se agrupa en 3 secciones principales:
+
+- Una sección que contiene información básica sobre la estación. En concreto se muestra la siguiente información:
   
-  - **Iniciar temporada**: Se introduce el nombre de la temporada de la cual se desean introducir datos.
-  - **Cargar jornadas**: Se cargarán los datos relativos a todas las jornadas de la liga. Estos datos se encuentran en un fichero llamado ***datosjornadas.txt*** dentro de la carpeta *"LigFemBal"*. Este fichero se trata de un fichero CSV con el separador "+" para separar los atributos de cada jornada, el separador "#" para separar los distintos partidos de una jornadas y el separador "$" para separar los datos de cada partido de la jornada.
-  - **Cargar equipos**: Se cargarán los datos relativos a todos los equipos de la liga. Estos datos se encuentran en un fichero llamado ***datosequipos.txt*** dentro de la carpeta *"LigFemBal"*. Este fichero se trata de un fichero CSV con el separador "#" para separar los distintos atributos de cada equipo.
-  - **Cargar jugadoras**: Se cargarán los datos relativos a las jugadoras de cada equipo de la liga. En la subcarpeta ***jugadoras*** dentro de la carpeta *"LigFemBal"* existe un fichero por cada equipo de la liga (con el nombre correspondiente al equipo), donde cada uno de estos ficheros contiene las jugadoras del equipo correspondiente. Estos ficheros se tratan de ficheros CSV con el separador "\t" para separar los distintos atributos de cada jugadora. Es posible que algunos atributos de una jugadora esten vacios. En ese caso, habrá 2 tabuladores juntos.
- 
-(***Nota***: Cada una de esta funcionalidades solo puede ejecutarse una vez y debe ejecutarse de manera secuencial)
- 
-- **Gestión de jugadoras**
-  - **Modificar datos de una jugadora**: Se pedirá el nombre de la jugadora cuyos datos se desean modificar y posteriormente se introducen los datos deseados. Si la jugadora no existe, se producirá un error y se alertará al usuario de la situación.
-  - **Eliminar jugadora de un equipo**: Se pedirá el nombre de la jugadora que se desea eliminar y se elimina la jugadora del equipo al que pertenece. Si la jugadora no existe, se producirá un error y se alertará al usuario de la situación.
-  - **Añadir jugadora a un equipo**: Se pedirán los datos de la jugadora que se desea añadir y al equipo al que pertenecerá. Si el equipo no existe, se producirá un error y se alertará al usuario de la situación.
- 
-- **Gestión de la jornada**
-  - **Leer resultados de la jornada**: En la subcarpeta ***resul_jornadas*** dentro de la carpeta *"LigFemBal"* existe un fichero por cada jornada donde cada fichero contiene los resultados de los partidos de dicha jornada. De esta manera, se pedirá el número de la jornada de la cual se desean leer los resultados y la apliación lee los resultados de los partidos de dicha jornada introducida. Al realizar la carga de los resultados de una jornada, tambien se calculará la clasificación de dicha jornada, teniendo en cuenta los datos de jornadas anteriores.
-  - **Modificar fecha de la jornada**: Se pedirá el número de la jornada que la cual se desea modificar su fecha y se introduce la nueva fecha.
-  - **Modificar fecha u hora de un partido**: Se pedirá el número de la jornada y el nombre de uno de los equipos que participan en el partido del cual se desea modificar su fecha u hora y se introduce la nueva fecha u hora.
-  - **Mostrar los resutados de la jornada**: Se pedirá el número de la jornada y se muestra los resultados de los partidos de dicha jornada en un listado.
-  - **Mostrar la clasificación de una jornada**: Se pedirá el número de la jornada y se muestra la clasifiación de lo equipos de la liga en dicha jornada en un listado.
- 
-- **Visualización de resultados**
-  - **Jugadoras de un equipo**: Se pedirá el nombre del equipo y se mostrará un listado con las jugadoras que pertenecen a dicho equipo ordenado por posición y altura. Si el equipo no existe, se producirá un error y se alertará al usuario de la situación.
-  - **Relación de equipos**: Se mostrará un listado con la información de los distintos equipos de la liga ordenados por el número de telefono.
-  - **Relación de jugadoras**: Se pedirá la letra inicial del nombre y se mostrará un listado con las jugadoras cuyo nombre empieza por esa letra ordenadas por fecha de nacimiento.
- 
-- **Almacenamiento de resultados**
-  - **Jugadoras de un equipo**: Se pedirá el nombre del equipo y se generará un fichero encolumnado con el nombre del equipo y extensión .enc, que almacenará la información de las distintias jugadoras que pertenecen a dicho equipo. Si el equipo no existe, se producirá un error y se alertará al usuario de la situación.
-  - **Relación de equipos**: Se generará un fichero encolumnado llamado ***equipos.enc***, que almacenará la información de los distintos equipos de la liga (nombre, telefono, web y email).
-  - **Clasificación de una jornada**: Se pedirá el número de la jornada y se generará un fichero html que almacenará la clasificación de la liga en la jornada introducida. El nombre de dicho fichero será n.hmtl siendo n el número de la jornada introducida.
- 
-(***Nota***: Los ficheros generados se almacenan en la subcarpeta ***fichsalida*** dentro de la carpeta *"LigFemBal"*)
-
-- **Salida de la aplicación**  
-Cuando el usuario salga de la aplicación, automaticamente se guardaran todos los datos de la aplicación en un fichero con formato binario llamado ***binario.txt*** dentro de la la subcarpeta ***binarios*** dentro de la carpeta *"LigFemBal"*.
+  - Nombre de la estación
+  - Modo de funcionamiento (Semiautomático o manual)
+  - Número de secuencia (VS)
+  - Número de trama esperada (VR)
+    
+- Una sección que contiene 2 tablas en las que se representa información sobre las tramas enviadas y recibidas por la estación. En concreto, se muestra la siguiente información sobre cada trama:
   
-# - Ejemplo de ejecución
+  - Instante en el que se envío/recibío la trama en la estación
+  - Tipo de trama
+  - Dirección a la que va dirigida la trama (si es un comando) o dirección de origen de la trama (si es una respuesta)
+  - Número de secuencia de la trama (NS)
+  - Estado del bit de poll (P/F)
+  - Número de trama esperada (NR)
 
-En las siguientes imagenes, se muestra un ejemplo del uso y funcionamiento de la aplicación:    
+- Una sección en la que se representa graficamente información sobre las tramas enviadas y recibidas por la estación. En concreto, se muestra la siguiente información sobre cada trama:
 
-## Gestión de la temporada
+  - Dirección a la que va dirigida la trama (si es un comando) o dirección de origen de la trama (si es una respuesta)
+  - Tipo de trama
+  - Estado del bit de poll (P/F)
+  - Número de secuencia de la trama (NS)
+  - Número de trama esperada (NR)
 
-![Ejemplo ejecucion 1](https://github.com/rmelgo/PROG-III-Aplicacion-Liga-Baloncesto/assets/145989723/22b2a4d7-c394-4383-80e3-736855fbb07f)
-![Ejemplo ejecucion 2](https://github.com/rmelgo/PROG-III-Aplicacion-Liga-Baloncesto/assets/145989723/764891f5-f22d-42d8-8640-6b66cd4edcb9)
-![Ejemplo ejecucion 3](https://github.com/rmelgo/PROG-III-Aplicacion-Liga-Baloncesto/assets/145989723/a8d9f6cc-a0b0-49f5-9409-4061e46b244c)
+## Configuración
 
-## Visualización de resultados
+Cada ventana de simulador corresponde a una estación. Cada estación tiene asociada una configuración. 
 
-### Visualización de las jugadoras de un equipo:
+Dentro de la configuración de la estación, existen 3 secciones:
 
-![Ejemplo ejecucion 4](https://github.com/rmelgo/PROG-III-Aplicacion-Liga-Baloncesto/assets/145989723/64d3164a-e6d9-4517-9b37-b4e8122d94de)
+- Protocolo
+- Modo de trabajo
+- Canal
 
-### Visualización de los datos de los equipos de la liga:
+Para acceder a la configuración, se debe hacer click a un boton con una rueda dentada que se encuentra en la esquina superior derecha. Al pulsar este botón, se desplegará una ventana con el siguiente aspecto:
 
-![Ejemplo ejecucion 5](https://github.com/rmelgo/PROG-III-Aplicacion-Liga-Baloncesto/assets/145989723/3402ac2f-e9b7-4478-afb9-b10580194ab3)
+![Ejemplo ejecucion 2](https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/c280d274-4db5-4a59-95bb-1b8a8806b6cf)
 
-### Visualización de las jugadoras cuyo nombre empieza con la incial introducida:
+Por defecto, se muestra la configuración del protocolo de la estación.
 
-![Ejemplo ejecucion 6](https://github.com/rmelgo/PROG-III-Aplicacion-Liga-Baloncesto/assets/145989723/faf29d1f-96ca-45e6-bc9b-4ff6963fbd54)
+### Configuración del protocolo de la estación
 
-## Gestión de jugadoras
+Dentro de la sección de la configuración del protocolo de la estación, se identifican 2 subsecciones:
 
-### Modificar y eliminar una jugadora de un equipo:
+- Una sección destinada a la configuración de *timeouts*
+- Una sección destinada a la configuración del *control de flujo*
 
-![Ejemplo ejecucion 7](https://github.com/rmelgo/PROG-III-Aplicacion-Liga-Baloncesto/assets/145989723/ed772b33-0932-4ddd-8295-6c9aabf460dd)
 
-### Añadir una jugadora de un equipo:
 
-![Ejemplo ejecucion 8](https://github.com/rmelgo/PROG-III-Aplicacion-Liga-Baloncesto/assets/145989723/71a11903-ac50-432d-bfd1-4f63edfdb23f)
 
-### Representación de los cambios realizados:
 
-![Ejemplo ejecucion 9](https://github.com/rmelgo/PROG-III-Aplicacion-Liga-Baloncesto/assets/145989723/1e912882-ab18-4db8-9d1f-d0f704fc00d2)
 
-## Gestión de jornada
 
-### Cargar y mostrar los resultados de una jornada:
 
-![Ejemplo ejecucion 10](https://github.com/rmelgo/PROG-III-Aplicacion-Liga-Baloncesto/assets/145989723/15160db4-bbd7-4887-a141-0cbbeb8b2d32)
-
-### Mostrar la clasificación de una jornada:
-
-![Ejemplo ejecucion 11](https://github.com/rmelgo/PROG-III-Aplicacion-Liga-Baloncesto/assets/145989723/6e08ee73-ef75-461d-9e11-9d4349f87814)
-
-## Almacenamiento de resultados
-
-### Almacenar la clasificación de una jornada
-
-![Ejemplo ejecucion 12](https://github.com/rmelgo/PROG-III-Aplicacion-Liga-Baloncesto/assets/145989723/3494c560-a763-4305-b79a-ae554bf05078)
-![Ejemplo ejecucion 13](https://github.com/rmelgo/PROG-III-Aplicacion-Liga-Baloncesto/assets/145989723/457a3699-f640-4e27-941b-3078e65f07c3)
+  
