@@ -109,14 +109,14 @@ Al abrir el fichero ***Simulador HDLC.exe***, inicialmente se presentará una ve
 
 La ventana principal se agrupa en 3 secciones principales:
 
-- Una sección que contiene información básica sobre la estación. En concreto se muestra la siguiente información:
+- Una sección que contiene **información básica** sobre la estación. En concreto se muestra la siguiente información:
   
   - Nombre de la estación
   - Modo de funcionamiento (Semiautomático o manual)
   - Número de secuencia (VS)
   - Número de trama esperada (VR)
     
-- Una sección que contiene 2 tablas en las que se representa información sobre las tramas enviadas y recibidas por la estación. En concreto, se muestra la siguiente información sobre cada trama:
+- Una sección que contiene 2 tablas en las que se **representa información sobre las tramas enviadas y recibidas por la estación**. En concreto, se muestra la siguiente información sobre cada trama:
   
   - Instante en el que se envío/recibío la trama en la estación
   - Tipo de trama
@@ -125,7 +125,7 @@ La ventana principal se agrupa en 3 secciones principales:
   - Estado del bit de poll (P/F)
   - Número de trama esperada (NR)
 
-- Una sección en la que se representa graficamente información sobre las tramas enviadas y recibidas por la estación. En concreto, se muestra la siguiente información sobre cada trama:
+- Una sección en la que se **representa graficamente información sobre las tramas enviadas y recibidas por la estación**. En concreto, se muestra la siguiente información sobre cada trama:
 
   - Dirección a la que va dirigida la trama (si es un comando) o dirección de origen de la trama (si es una respuesta)
   - Tipo de trama
@@ -135,32 +135,59 @@ La ventana principal se agrupa en 3 secciones principales:
 
 ## Configuración
 
-Cada ventana de simulador corresponde a una estación. Cada estación tiene asociada una configuración. 
+Cada ventana de simulador corresponde a una estación. Cada estación tiene asociada una **configuración**. 
 
-Dentro de la configuración de la estación, existen 3 secciones:
+Dentro de la **configuración de la estación**, existen 3 secciones:
 
 - Protocolo
 - Modo de trabajo
 - Canal
 
-Para acceder a la configuración, se debe hacer click a un boton con una rueda dentada que se encuentra en la esquina superior derecha. Al pulsar este botón, se desplegará una ventana con el siguiente aspecto:
-
-![Ejemplo ejecucion 2](https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/c280d274-4db5-4a59-95bb-1b8a8806b6cf)
-
-Por defecto, se muestra la configuración del protocolo de la estación.
+Para acceder a la configuración, se debe hacer click a un botón con una rueda dentada que se encuentra en la esquina superior derecha. 
 
 ### Configuración del protocolo de la estación
 
+Al acceder a la configuración de la estación, se desplegará una ventana en la que se mostrará por defecto la sección de la configuración del protocolo de la estación. Esta sección tiene el siguiente aspecto:
+
+![Ejemplo ejecucion 2](https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/c280d274-4db5-4a59-95bb-1b8a8806b6cf)
+
 Dentro de la sección de la configuración del protocolo de la estación, se identifican 2 subsecciones:
 
-- Una sección destinada a la configuración de *timeouts*
-- Una sección destinada a la configuración del *control de flujo*
-
-
-
-
-
-
-
-
+- Una sección destinada a la configuración de ***timeouts***. En esta sección, se pueden configurar 3 tipos de timeouts:
   
+  - **Timeout ante Command**: Este timeout hace referencia al tiempo máximo que una estación espera una respuesta cuando esta envía un comando con el bit de sondeo activado. 
+  - **Timeout ante trama I**: Este timeout hace referencia al tiempo máximo que una estación espera reconocimiento de una trama de información anteriormente enviada. 
+  - **Timeout ante Request**: Este timeout hace referencia al tiempo máximo que una estación espera la recepción de un comando tras realizar el envío de una respuesta.
+
+**Nota**: Para obtener mas información del funcionamiento o significado de los timeouts, se recomienda utilizar el manual de usuario del simulador o utilizar los botones de ayuda con el símbolo "?".
+
+- Una sección destinada a la configuración del ***control de flujo***. Esta sección cuenta con 2 párametros:
+
+  - **Tamaño de la ventana**: Este parámetro hace referencia al número máximo de tramas que en un determinado momento pueden estar pendientes de confirmación. 
+  - **Número de tramas erróneas consecutivas**: Este parámetro hace referencia al número máximo de tramas erróneas consecutivas permitidas que una estación puede enviar antes de desconectar el enlace físico con la otra estación conectada. 
+
+**Nota**: Para obtener mas información del funcionamiento o significado de estos parámetros, se recomienda utilizar el manual de usuario del simulador o utilizar los botones de ayuda con el símbolo "?".
+
+### Configuración del modo de trabajo de la estación
+
+La sección de la configuración del modo de trabajo de la estación tiene el siguiente aspecto:
+
+![Ejemplo ejecucion 3](https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/8aab81bd-0ad8-4afa-8079-b4d49d402a9c)
+
+La estación tiene 2 modos de trabajo en los que la estación puede funcionar:
+
+  - **Modo semiautomático**: La estación responde de manera automática en algunas situaciones. En el manual de usuario y en los sistemas de ayuda se detallan en que situciones se producen respuestas automáticas. También se aplicarán los timeouts configurados en la sección de protocolo y se permitira el envío de tramas erróneas.
+  - **Modo manual**: La estación no responde de manera automática en ninguna situación. Tampoco se aplicarán los timeouts configurados en la sección de protocolo y ni se permitira el envío de tramas erróneas.
+
+### Configuración del canal de transmisión de la estación
+
+La sección de la configuración del canal de transmisión de la estación tiene el siguiente aspecto:
+
+![Ejemplo ejecucion 4](https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/bd9ca946-11ad-4382-8db1-c64249ad2dbd)
+
+Dentro de la sección de la configuración del canal de transmisión de la estación, se identifican 2 parámetros fundamentales:
+
+  - **Retardo**: El retardo hace referencia al tiempo transcurrido desde que se produce el envío de la trama desde la estación de origen hasta que se produce la recepción de la trama en la estación de destino. 
+  - **Modo manual**: La tasa de error hace referencia a la probabilidad de que una trama enviada sea recibida de manera errónea debido a una alteración en el contenido de la trama.
+
+**Nota**: Para obtener mas información del funcionamiento o significado de estos parámetros, se recomienda utilizar el manual de usuario del simulador o utilizar los botones de ayuda con el símbolo "?".
