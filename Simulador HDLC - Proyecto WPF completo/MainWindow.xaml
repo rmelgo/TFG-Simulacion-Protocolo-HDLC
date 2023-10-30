@@ -1,0 +1,655 @@
+﻿<Window x:Class="Simulador_HDLC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Simulador_HDLC"
+        mc:Ignorable="d"
+        Icon="hdlc_logo.png"
+        Title="Estación principal" Height="540" Width="960" Background="#F5F5F5" MouseDown="Window_MouseDown">
+
+    <!--Estilos para las cabeceras de las tablas-->
+    <Window.Resources>
+        <Style x:Key="HeaderStyle" TargetType="GridViewColumnHeader">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+        </Style>
+    </Window.Resources>
+
+    <Canvas>
+
+        <Rectangle x:Name="BotoneraSuperior" Height="30" Width="592" Fill="#FFDBDB" Stroke="Black" StrokeThickness="1" RadiusX="5" RadiusY="5" Canvas.Left="30" Canvas.Top="0"/>
+
+        <Border x:Name="BordeBotonEnvioTramaInformacion" CornerRadius="5" BorderThickness="0" Background="#FFDBDB" Height="28" Width="53" Canvas.Left="31" Canvas.Top="1">
+            <Button Content="SABM" x:Name="BotonEnvioTramaSolicitudConexion" BorderThickness="0" Background="#FFDBDB" Margin="4,0" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" BorderBrush="Black" IsEnabled="False" Click="BotonEnvioTramaSolicitudConexion_Click" MouseRightButtonDown="BotonEnvioTramaSolicitudConexion_MouseRightButtonDown"/>
+        </Border>
+
+        <Button Content="I" x:Name="BotonEnvioTramaInformacion" BorderThickness="0" Background="#FFDBDB" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Width="53" Height="28" BorderBrush="Black" IsEnabled="False" Canvas.Left="84" Canvas.Top="1" Click="BotonEnvioTramaInformacion_Click" MouseRightButtonDown="BotonEnvioTramaInformacion_MouseRightButtonDown"/>
+
+        <Button Content="RR" x:Name="BotonEnvioTramaReceptorPreparado" BorderThickness="0" Background="#FFDBDB" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Width="53" Height="28" BorderBrush="Black" IsEnabled="False" Canvas.Left="137" Canvas.Top="1" Click="BotonEnvioTramaReceptorPreparado_Click" MouseRightButtonDown="BotonEnvioTramaReceptorPreparado_MouseRightButtonDown"/>
+
+        <Button Content="RNR" x:Name="BotonEnvioTramaReceptorNoPreparado" BorderThickness="0" Background="#FFDBDB" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Width="53" Height="28" BorderBrush="Black" IsEnabled="False" Canvas.Left="190" Canvas.Top="1" Click="BotonEnvioTramaReceptorNoPreparado_Click" MouseRightButtonDown="BotonEnvioTramaReceptorNoPreparado_MouseRightButtonDown"/>
+
+        <Button Content="REJ" x:Name="BotonEnvioTramaRechazo" BorderThickness="0" Background="#FFDBDB" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Width="53" Height="28" BorderBrush="Black" IsEnabled="False" Canvas.Left="243" Canvas.Top="1" Click="BotonEnvioTramaRechazo_Click" MouseRightButtonDown="BotonEnvioTramaRechazo_MouseRightButtonDown"/>
+
+        <Button Content="SREJ" x:Name="BotonEnvioTramaRechazoSelectivo" BorderThickness="0" Background="#FFDBDB" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Width="53" Height="28" BorderBrush="Black" IsEnabled="False" Canvas.Left="296" Canvas.Top="1" Click="BotonEnvioTramaRechazoSelectivo_Click" MouseRightButtonDown="BotonEnvioTramaRechazoSelectivo_MouseRightButtonDown"/>
+
+        <Button Content="UA" x:Name="BotonEnvioTramaAsentimientoNoNumerado" BorderThickness="0" Background="#FFDBDB" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Width="53" Height="28" BorderBrush="Black" IsEnabled="False" Canvas.Left="349" Canvas.Top="1" Click="BotonEnvioTramaAsentimientoNoNumerado_Click" MouseRightButtonDown="BotonEnvioTramaAsentimientoNoNumerado_MouseRightButtonDown"/>
+
+        <Button Content="FRMR" x:Name="BotonEnvioTramaRechazoTrama" BorderThickness="0" Background="#FFDBDB" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Width="53" Height="28" BorderBrush="Black" IsEnabled="False" Canvas.Left="402" Canvas.Top="1" Click="BotonEnvioTramaRechazoTrama_Click" MouseRightButtonDown="BotonEnvioTramaRechazoTrama_MouseRightButtonDown"/>
+
+        <Button Content="DISC" x:Name="BotonEnvioTramaSolicitudDesconexion" BorderThickness="0" Background="#FFDBDB" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Width="53" Height="28" BorderBrush="Black" IsEnabled="False" Canvas.Left="455"  Canvas.Top="1" Click="BotonEnvioTramaSolicitudDesconexion_Click" MouseRightButtonDown="BotonEnvioTramaSolicitudDesconexion_MouseRightButtonDown"/>
+    
+        <Button Content="DM" x:Name="BotonEnvioTramaModoDesconectado" BorderThickness="0" Background="#FFDBDB" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Width="53" Height="28" BorderBrush="Black" IsEnabled="False" Canvas.Left="508" Canvas.Top="1" Click="BotonEnvioTramaModoDesconectado_Click" MouseRightButtonDown="BotonEnvioTramaModoDesconectado_MouseRightButtonDown"/>
+    
+        <Border CornerRadius="5" BorderThickness="0" Background="#FFDBDB" Height="28" Width="60" Canvas.Left="561" Canvas.Top="1">
+            <Button x:Name="BotonAyudaTramas" BorderThickness="0" Background="#FFDBDB" Margin="4,0" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" BorderBrush="Black" Click="BotonAyudaTramas_Click">
+                <Image Stretch="Fill" Height="16" Width="16" Source="boton-web-de-ayuda.png"/>
+            </Button>
+        </Border>
+        
+
+        <Line Stroke="Black" X1="84" Y1="1" X2="84" Y2="29"></Line>
+        <Line Stroke="Black" X1="137" Y1="1" X2="137" Y2="29"></Line>
+        <Line Stroke="Black" X1="190" Y1="1" X2="190" Y2="29"></Line>
+        <Line Stroke="Black" X1="243" Y1="1" X2="243" Y2="29"></Line>
+        <Line Stroke="Black" X1="296" Y1="1" X2="296" Y2="29"></Line>
+        <Line Stroke="Black" X1="349" Y1="1" X2="349" Y2="29"></Line>
+        <Line Stroke="Black" X1="402" Y1="1" X2="402" Y2="29"></Line>
+        <Line Stroke="Black" X1="455" Y1="1" X2="455" Y2="29"></Line>
+        <Line Stroke="Black" X1="508" Y1="1" X2="508" Y2="29"></Line>
+        <Line Stroke="Black" X1="561" Y1="1" X2="561" Y2="29"></Line>
+
+
+        <Canvas x:Name="CanvasBotoneraOpciones" Height="30" Width="300" Canvas.Left="637" Canvas.Top="0">
+
+            <Rectangle x:Name="BotoneraOpciones" Height="30" Width="300" Fill="#CFD3FF" Stroke="Black" StrokeThickness="1" RadiusX="5" RadiusY="5"/>
+
+            <Border x:Name="BordeBotonConfiguracion" CornerRadius="5" BorderThickness="0" Background="#CFD3FF" Height="28" Width="75" Canvas.Left="1" Canvas.Top="1">
+            <Button x:Name="BotonConfiguracion" BorderThickness="0" Background="#CFD3FF" Margin="4,0" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" BorderBrush="Black" Click="BotonConfiguracion_Click">
+                <Image x:Name="ImagenConfiguracion" Stretch="Fill" Height="22" Width="22" RenderTransformOrigin="0.5, 0.5" Source="settings_work_tool_icon_123854.png"/>
+            </Button>
+        </Border>
+
+        <Button x:Name="BotonGuardarCapturaTrafico" BorderThickness="0" Background="#CFD3FF" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Width="75" Height="28" BorderBrush="Black" Canvas.Left="76" Canvas.Top="1" Click="BotonGuardarCapturaTrafico_Click">
+                <Image x:Name="ImagenGuardar" Stretch="Fill" Height="22" Width="22" RenderTransformOrigin="0.5, 0.5" Source="disquete.png"/>
+        </Button>
+
+        <Button x:Name="BotonCargarCapturaTrafico" BorderThickness="0" Background="#CFD3FF" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Width="75" Height="28" BorderBrush="Black" Canvas.Left="151" Canvas.Top="1" Click="BotonCargarCapturaTrafico_Click">
+                <Image x:Name="ImagenCargar" Stretch="Fill" Height="24" Width="24" RenderTransformOrigin="0.5, 0.5" Source="carga-en-la-nube.png"/>
+        </Button>
+
+        <Border CornerRadius="5" BorderThickness="0" Background="#CFD3FF" Height="28" Width="73" Canvas.Left="226" Canvas.Top="1">
+            <Button x:Name="BotonAyudaOpciones" BorderThickness="0" Background="#CFD3FF" Margin="4,0" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" BorderBrush="Black" Click="BotonAyudaOpciones_Click">
+                    <Image x:Name="ImagenAyuda" Stretch="Fill" Height="16" Width="16" RenderTransformOrigin="0.5, 0.5" Source="boton-web-de-ayuda.png"/>
+            </Button>
+        </Border>
+        
+     
+        <Line Stroke="Black" X1="76" Y1="1" X2="76" Y2="29"></Line>
+        <Line Stroke="Black" X1="151" Y1="1" X2="151" Y2="29"></Line>
+        <Line Stroke="Black" X1="226" Y1="1" X2="226" Y2="29"></Line>
+        </Canvas>
+
+
+        <Rectangle x:Name="SeccionInformacionBasicaTrama" Width="592" Height="66" Fill="#E4E4E4" Stroke="Black" StrokeThickness="1" RadiusX="8" RadiusY="8" Canvas.Left="30" Canvas.Top="50">
+        </Rectangle>
+
+        <Border CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="White" Height="40" Width="122" Canvas.Left="67" Canvas.Top="63">
+            <ComboBox x:Name="CajaNombreEstacion" BorderThickness="0" Background="White" IsEditable="True" Margin="4,0" FontFamily="SegoeUI" FontSize="16" FontWeight="DemiBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionChanged="CajaNombreEstacion_SelectionChanged" IsReadOnly="True"/>
+        </Border>
+
+        <Label Content="VS" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="304" Canvas.Top="68"/>
+
+        <Border CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="White" Height="31" Width="35" Canvas.Left="344" Canvas.Top="68">
+            <TextBox x:Name="CajaNumeroSecuencia" IsReadOnly="True" BorderThickness="0" Background="White" Margin="4,0" FontFamily="SegoeUI" FontSize="12" FontWeight="DemiBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Border>
+
+        <Label Content="VR" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="422" Canvas.Top="68"/>
+
+        <Border CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="White" Height="31" Width="35" Canvas.Left="461" Canvas.Top="68">
+            <TextBox x:Name="CajaNumeroTramaEsperada" IsReadOnly="True" BorderThickness="0" Background="White" Margin="4,0" FontFamily="SegoeUI" FontSize="12" FontWeight="DemiBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Border>
+
+        <Image Name="ImagenModoSemiautomatico" Stretch="Uniform" Width="50" Source="automatico.png" Canvas.Left="228" Canvas.Top="66" Visibility="Visible"/>
+        <Image Name="ImagenModoManual" Stretch="UniformToFill" Width="50" Source="manual.png" Canvas.Left="228" Canvas.Top="59" Visibility="Hidden"/>
+
+        <Ellipse x:Name="SimboloTimeoutCommand" Width="14" Height="14" Fill="Blue" Canvas.Left="515" Canvas.Top="92" Visibility="Hidden"/>
+        <Ellipse x:Name="SimboloTimeoutTramaI" Width="14" Height="14" Fill="Green" Canvas.Left="535" Canvas.Top="92" Visibility="Hidden"/>
+        <Ellipse x:Name="SimboloTimeoutRequest" Width="14" Height="14" Fill="Red" Canvas.Left="555" Canvas.Top="92" Visibility="Hidden"/>
+
+        <Button x:Name="BotonAyudaSeccionInformacionBasicaTrama" Width="20" Height="20" BorderThickness="0" Background="#E4E4E4" Canvas.Left="594" Canvas.Top="89" Click="BotonAyudaSeccionInformacionBasicaTrama_Click">
+            <Image Name="ImagenAyudaSeccionInformacionBasicaTrama" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+        </Button>
+
+        <Rectangle x:Name="SeccionTablaIntercambioTramas" Width="592" Height="314" Fill="#E4E4E4" Stroke="Black" StrokeThickness="1" RadiusX="8" RadiusY="8" Canvas.Left="30" Canvas.Top="136">
+        </Rectangle>
+
+        <Label Content="Tramas enviadas" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" Canvas.Left="121" Canvas.Top="149"/>
+
+        <ListView x:Name="TablaTramasEnviadas" Height="254" Width="276" Canvas.Left="40" Canvas.Top="178" FontFamily="Segoe UI" FontSize="13" FontWeight="DemiBold" FontStyle="Italic" Foreground="Black" SelectionChanged="TablaTramasEnviadas_SelectionChanged" ScrollViewer.ScrollChanged="TablaTramasEnviadas_ScrollChanged" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding TramaIncorrecta}" Value="true">
+                                <Setter Property="Foreground" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn x:Name="Tramas_Enviadas_Columna_tiempo" Header="Tiempo" DisplayMemberBinding="{Binding InstanteTemporalTabla}" HeaderContainerStyle="{StaticResource HeaderStyle}" Width="55"/>
+                        <GridViewColumn x:Name="Tramas_Enviadas_Columna_tipo" Header="Tipo" DisplayMemberBinding="{Binding TipoDeTramaTabla}" HeaderContainerStyle="{StaticResource HeaderStyle}" Width="48"/>
+                        <GridViewColumn x:Name="Tramas_Enviadas_Columna_direccion" Header="Dirección" DisplayMemberBinding="{Binding DireccionEstacion}" HeaderContainerStyle="{StaticResource HeaderStyle}" Width="62"/>
+                        <GridViewColumn x:Name="Tramas_Enviadas_Columna_NS" Header="NS" DisplayMemberBinding="{Binding NumeroSecuenciaTabla}" HeaderContainerStyle="{StaticResource HeaderStyle}" Width="27"/>
+                        <GridViewColumn x:Name="Tramas_Enviadas_Columna_PF" Header="P/F" DisplayMemberBinding="{Binding InfoBitSondeoTabla}" HeaderContainerStyle="{StaticResource HeaderStyle}" Width="30"/>
+                        <GridViewColumn x:Name="Tramas_Enviadas_Columna_NR" Header="NR" DisplayMemberBinding="{Binding NumeroTramaEsperadaTabla}" HeaderContainerStyle="{StaticResource HeaderStyle}" Width="27"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Label Content="Tramas recibidas" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" Canvas.Left="412" Canvas.Top="149"/>
+
+
+        <ListView x:Name="TablaTramasRecibidas" Height="254" Width="276" Canvas.Left="325" Canvas.Top="178" FontFamily="Segoe UI" FontSize="13" FontWeight="DemiBold" FontStyle="Italic" Foreground="#0000FF" SelectionChanged="TablaTramasRecibidas_SelectionChanged" ScrollViewer.ScrollChanged="TablaTramasRecibidas_ScrollChanged" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding TramaIncorrecta}" Value="true">
+                                <Setter Property="Foreground" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="Tramas_Recibidas_Columna_tiempo" Header="Tiempo" DisplayMemberBinding="{Binding InstanteTemporalTabla}" HeaderContainerStyle="{StaticResource HeaderStyle}" Width="55"/>
+                    <GridViewColumn x:Name="Tramas_Recibidas_Columna_tipo" Header="Tipo" DisplayMemberBinding="{Binding TipoDeTramaTabla}" HeaderContainerStyle="{StaticResource HeaderStyle}" Width="48"/>
+                    <GridViewColumn x:Name="Tramas_Recibidas_Columna_direccion" Header="Dirección" DisplayMemberBinding="{Binding DireccionEstacion}" HeaderContainerStyle="{StaticResource HeaderStyle}" Width="62"/>
+                    <GridViewColumn x:Name="Tramas_Recibidas_Columna_NS" Header="NS" DisplayMemberBinding="{Binding NumeroSecuenciaTabla}" HeaderContainerStyle="{StaticResource HeaderStyle}" Width="27"/>
+                    <GridViewColumn x:Name="Tramas_Recibidas_Columna_PF" Header="P/F" DisplayMemberBinding="{Binding InfoBitSondeoTabla}" HeaderContainerStyle="{StaticResource HeaderStyle}" Width="30"/>
+                    <GridViewColumn x:Name="Tramas_Recibidas_Columna_NR" Header="NR" DisplayMemberBinding="{Binding NumeroTramaEsperadaTabla}" HeaderContainerStyle="{StaticResource HeaderStyle}" Width="27"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <TextBox x:Name="TramasPendientes" Text="" Canvas.Left="43" Canvas.Top="432" FontFamily="Segoe UI" FontSize="13" FontWeight="DemiBold" FontStyle="Italic" BorderThickness="0" Background="Transparent"></TextBox>
+
+        <Button x:Name="BotonAyudaSeccionTablaIntercambioTramas" Width="20" Height="20" BorderThickness="0" Background="Transparent" Canvas.Left="601" Canvas.Top="424" Click="BotonAyudaSeccionTablaIntercambioTramas_Click">
+            <Image Name="ImagenAyudaSeccionTablaIntercambioTramas" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+        </Button>
+
+
+        <Rectangle x:Name="SeccionGraficoIntercambioTramas" Width="300" Height="400" Fill="#E4E4E4" Stroke="Black" StrokeThickness="1" RadiusX="8" RadiusY="8" Canvas.Left="637" Canvas.Top="50">
+        </Rectangle>
+
+        <Grid Canvas.Left="637" Canvas.Top="50">
+            <ScrollViewer x:Name="ScrollCanvasSeccionGrafica" Width="299" Height="270" Margin="0,110">
+                <Canvas x:Name="CanvasSeccionGrafica" Background="#E4E4E4" Width="280" Height="270">
+                    <Line Stroke="Black" X1="57" Y1="0" X2="57" Y2="270" StrokeThickness="2"></Line>
+                    <Line Stroke="Black" X1="232" Y1="0" X2="232" Y2="270" StrokeThickness="2"></Line>
+                </Canvas>
+            </ScrollViewer>
+        </Grid>
+
+        <Image Stretch="UniformToFill" Width="50" Height="50" Source="pc-de-escritorio.png" Canvas.Left="674" Canvas.Top="86"/>
+
+        <Label x:Name="NombreEstaciónOrigen" Content="" FontFamily="Segoe UI" FontSize="16" FontWeight="DemiBold" Canvas.Left="683" Canvas.Top="95"/>
+
+        <Image Stretch="UniformToFill" Width="50" Height="50" Source="pc-de-escritorio.png" Canvas.Left="849" Canvas.Top="86"/>
+      
+        <Label x:Name="NombreEstaciónDestino" Content="" FontFamily="Segoe UI" FontSize="16" FontWeight="DemiBold" Canvas.Left="858" Canvas.Top="95"/>
+
+        <Button x:Name="BotonCapturaImagen" Width="28" Height="28" Canvas.Left="907" Canvas.Top="52" BorderThickness="0" Background="Transparent" Click="BotonCapturaImagen_Click">
+            <Image Stretch="UniformToFill" Source="camara.png"/>
+        </Button>
+        
+        <Button x:Name="BotonAyudaSeccionGraficoIntercambioTramas" Width="20" Height="20" BorderThickness="0" Background="#E4E4E4" Canvas.Left="912" Canvas.Top="426" Click="BotonAyudaSeccionGraficoIntercambioTramas_Click">
+            <Image Name="ImagenAyudaSeccionGraficoIntercambioTramas" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+        </Button>
+
+        
+        <Label Name="EtiquetaSituación" Content="Situación" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="101" Canvas.Top="469"/>
+
+        <Border x:Name="BordeCajaSituacionEstacion" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Background="White" Height="28" Width="136" Canvas.Left="184" Canvas.Top="470">
+            <TextBox x:Name="CajaSituacionEstacion" IsReadOnly="True" BorderThickness="0" Background="White" Margin="4,0" FontFamily="SegoeUI" FontSize="14" FontWeight="Bold" FontStyle="Italic" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Border>
+
+        <Border x:Name="BordeBotonInicializarConexionFisica" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Background="#0FD89E" Height="25" Width="80" Canvas.Left="421" Canvas.Top="470">
+            <Button Content="Inicializar" x:Name="BotonInicializarConexionFisica" BorderThickness="0" Background="#0FD89E" Margin="4,0" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" BorderBrush="Black" Click="BotonInicializarConexionFisica_Click"/>
+        </Border>
+
+        <Border x:Name="BordeBotonFinalizarConexionFisica" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Background="#FF7B7B" Height="25" Width="80" Canvas.Left="530" Canvas.Top="470">
+            <Button Content="Finalizar" x:Name="BotonFinalizarConexionFisica" BorderThickness="0" Background="#FF7B7B" Margin="4,0" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" BorderBrush="Black" Click="BotonFinalizarConexionFisica_Click"/>
+        </Border>
+
+        <Border x:Name="BordeBotonCambioVisualización" BorderThickness="1" BorderBrush="Black" Background="#E69D9D" Height="30" Width="30" Canvas.Left="0" Canvas.Top="479">
+            <Button x:Name="BotonCambioVisualización" BorderThickness="0" Background="#E69D9D" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" BorderBrush="Black" Click="BotonCambioVisualización_Click">
+                <Image Name="ImagenModoVisualizacion" Stretch="UniformToFill" Source="modo_lectura.png"/>
+            </Button>
+        </Border>
+
+        <Label Name="ReferenciaTemporal" Content="00:00" Canvas.Left="350" Canvas.Top="468" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold"></Label>
+
+        <!--Seccion de los bocadillos de ayuda-->
+
+        <Canvas x:Name="CanvasAyudaSeccionInformacionBasicaTrama" Visibility="Hidden">
+            <Polygon Points="604,110 610,130 598,130" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="400" Height="216" Stroke="#404040" Canvas.Left="227" Canvas.Top="129" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="235" Canvas.Top="137" Width="384" Height="202" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        En esta sección, se muestra
+                        <Bold>información básica</Bold> sobre la propia estación. 
+                    </Paragraph>
+                    <Paragraph>
+                        En primer lugar, se muestra en el rectangulo izquierdo el
+                        <Bold>nombre de la estación</Bold>. El usuario puede elegir entre varios nombres posibles para la estación (A o B).
+                    </Paragraph>
+                    <Paragraph>
+                        En segundo lugar, se muestra el
+                        <Bold>número de secuencia</Bold> de la estación (<Bold>VS</Bold>). Este número hace referencia al número de secuencia que debe incluir la trama que envie la estación.
+                    </Paragraph>
+                    <Paragraph>
+                        En tercer lugar, se muestra el
+                        <Bold>número de trama esperada</Bold> de la estación (<Bold>VR</Bold>). Este número hace referencia al número de secuencia que debe incluir la próxima trama que reciba la estación.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="599" Y1="130" X2="609" Y2="130" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasAyudaSeccionTablaIntercambioTramas" Visibility="Hidden">
+            <Polygon Points="611,422 617,402 605,402" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="400" Height="238" Stroke="#404040" Canvas.Left="232" Canvas.Top="165" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="240" Canvas.Top="172" Width="384" Height="224" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        En esta sección, se muestra información sobre las
+                        <Bold>tramas enviadas y recibidas</Bold> por la estación.
+                    </Paragraph>
+                    <Paragraph>
+                        Para cada trama enviada o recibida, se incluye la siguiente información:
+                    </Paragraph>
+                    <Paragraph Padding="10,0,0,0">
+                        -
+                        <Bold>
+                            <Italic>Instante temporal</Italic>
+                        </Bold> en el que se ha enviado o recibido la trama.
+                        <LineBreak/>
+                        -
+                        <Bold>
+                            <Italic>Tipo de trama</Italic>
+                        </Bold> enviada/recibida.
+                        <LineBreak/>
+                        -
+                        <Bold>
+                            <Italic>Dirección de la estación</Italic>
+                        </Bold> a la que va dirigida la trama o que responde en el caso de que la trama sea una respuesta.
+                        <LineBreak/>
+                        -
+                        <Bold>
+                            <Italic>Número de secuencia</Italic>
+                        </Bold> de la trama enviada/recibida.
+                        <LineBreak/>
+                        - Estado del
+                        <Bold>
+                            <Italic>bit de sondeo</Italic>
+                        </Bold>.
+                        <LineBreak/>
+                        -
+                        <Bold>
+                            <Italic>Número de trama esperada</Italic>
+                        </Bold> por la estación situada en el otro extremo.
+                    </Paragraph>
+                    <Paragraph>
+                        <Italic>Nota</Italic>: Solo algunos tipos de tramas cuentan con información para el número de secuencia y el número de trama esperada.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="606" Y1="402" X2="616" Y2="402" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasAyudaSeccionGraficoIntercambioTramas" Visibility="Hidden">
+            <Polygon Points="922,422 916,402 928,402" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="400" Height="222" Stroke="#404040" Canvas.Left="545" Canvas.Top="181" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="552" Canvas.Top="188" Width="384" Height="208" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        En esta sección, se muestra información sobre las
+                        <Bold>tramas enviadas y recibidas</Bold> por la estación de manera gráfica e interactiva.
+                    </Paragraph>
+                    <Paragraph>
+                        Para cada trama enviada o recibida, se incluye la siguiente información:
+                    </Paragraph>
+                    <Paragraph Padding="10,0,0,0">
+                        -
+                        <Bold>
+                            <Italic>Dirección de la estación</Italic>
+                        </Bold> a la que va dirigida la trama o que responde en el caso de que la trama sea una respuesta.
+                        <LineBreak/>
+                        -
+                        <Bold>
+                            <Italic>Tipo de trama</Italic>
+                        </Bold> enviada/recibida.
+                        <LineBreak/>
+                        - Estado del
+                        <Bold>
+                            <Italic>bit de sondeo</Italic>
+                        </Bold> .
+                        <LineBreak/>
+                        -
+                        <Bold>
+                            <Italic>Número de secuencia</Italic>
+                        </Bold> de la trama enviada/recibida.
+                        <LineBreak/>
+                        -
+                        <Bold>
+                            <Italic>Número de trama esperada</Italic>
+                        </Bold> por la estación situada en el otro extremo.
+                    </Paragraph>
+                    <Paragraph>
+                        <Italic>Nota</Italic>: Solo algunos tipos de tramas cuentan con información para el número de secuencia y el número de trama esperada.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="927" Y1="402" X2="917" Y2="402" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasAyudaBotoneraSuperior1" Visibility="Hidden">
+            <Polygon Points="56.5,32 50.5,52 62.5,52" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="400" Height="92" Stroke="#404040" Canvas.Left="30" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="38" Canvas.Top="58" Width="384" Height="78" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        El
+                        <Bold>botón
+                            <Italic>SABM</Italic>
+                        </Bold> permite el envío de tramas de
+                        <Bold>
+                            <Italic>solicitud de conexión (SABM)</Italic>
+                        </Bold>.
+                    </Paragraph>
+                    <Paragraph>
+                        Permite iniciar el establecimiento de una conexión con la estación situada en el otro extremo.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="51.5" Y1="51" X2="61.5" Y2="51" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasAyudaBotoneraSuperior2" Visibility="Hidden">
+            <Polygon Points="109.5,32 103.5,52 115.5,52" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="400" Height="122" Stroke="#404040" Canvas.Left="83" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="91" Canvas.Top="58" Width="384" Height="108" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        El
+                        <Bold>botón
+                            <Italic>I</Italic>
+                        </Bold> permite el envío de tramas de
+                        <Bold>
+                            <Italic>información (I)</Italic>
+                        </Bold>.
+                    </Paragraph>
+                    <Paragraph>
+                        Este tipo de trama permite enviar hasta 1500 bytes de información de una estación a otra.
+                        <LineBreak/>
+                        <LineBreak/>
+                        Cada trama de información tiene un número de secuencia (NS) y un número de trama esperada (NR) asociado.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="104.5" Y1="51" X2="114.5" Y2="51" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasAyudaBotoneraSuperior3" Visibility="Hidden">
+            <Polygon Points="162.5,32 156.5,52 168.5,52" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="400" Height="92" Stroke="#404040" Canvas.Left="136" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="144" Canvas.Top="58" Width="384" Height="78" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        El
+                        <Bold>botón
+                            <Italic>RR</Italic>
+                        </Bold> permite el envío de tramas de
+                        <Bold>
+                            <Italic>receptor preparado (RR)</Italic>
+                        </Bold>.
+                    </Paragraph>
+                    <Paragraph>
+                        Permite confirmar tramas de información recibidas, permite indicar la disponibilidad de la estación para recibir más tramas y permite sondear a la otra estación en busca de una respuesta.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="157.5" Y1="51" X2="167.5" Y2="51" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasAyudaBotoneraSuperior4" Visibility="Hidden">
+            <Polygon Points="215.5,32 209.5,52 221.5,52" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="400" Height="82" Stroke="#404040" Canvas.Left="189" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="197" Canvas.Top="58" Width="384" Height="68" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        El
+                        <Bold>botón
+                            <Italic>RNR</Italic>
+                        </Bold> permite el envío de tramas de
+                        <Bold>
+                            <Italic>receptor no preparado (RNR)</Italic>
+                        </Bold>.
+                    </Paragraph>
+                    <Paragraph>
+                        Permite confirmar tramas de información recibidas y permite indicar la falta de disponibilidad de la estación para recibir más tramas.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="210.5" Y1="51" X2="220.5" Y2="51" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasAyudaBotoneraSuperior5" Visibility="Hidden">
+            <Polygon Points="268.5,32 262.5,52 274.5,52" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="400" Height="92" Stroke="#404040" Canvas.Left="242" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="250" Canvas.Top="58" Width="384" Height="78" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        El
+                        <Bold>botón
+                            <Italic>REJ</Italic>
+                        </Bold> permite el envío de tramas de
+                        <Bold>
+                            <Italic>rechazo (REJ)</Italic>
+                        </Bold>.
+                    </Paragraph>
+                    <Paragraph>
+                        Permite confirmar la recepción de tramas de información anteriores a la N(R) y solicita la retransmisión de la trama N(R) y siguientes tramas de información sin confirmar.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="263.5" Y1="51" X2="273.5" Y2="51" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasAyudaBotoneraSuperior6" Visibility="Hidden">
+            <Polygon Points="321.5,32 315.5,52 327.5,52" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="400" Height="82" Stroke="#404040" Canvas.Left="295" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="303" Canvas.Top="58" Width="384" Height="68" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        El
+                        <Bold>botón
+                            <Italic>SREJ</Italic>
+                        </Bold> permite el envío de tramas de
+                        <Bold>
+                            <Italic>rechazo selectivo (SREJ)</Italic>
+                        </Bold>.
+                    </Paragraph>
+                    <Paragraph>
+                        Permite confirmar la recepción de tramas de información anteriores a la N(R) y solicita la retransmisión de la trama N(R).
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="316.5" Y1="51" X2="326.5" Y2="51" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasAyudaBotoneraSuperior7" Visibility="Hidden">
+            <Polygon Points="374.5,32 368.5,52 380.5,52" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="400" Height="92" Stroke="#404040" Canvas.Left="348" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="356" Canvas.Top="58" Width="384" Height="78" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        El
+                        <Bold>botón
+                            <Italic>UA</Italic>
+                        </Bold> permite el envío de tramas de
+                        <Bold>
+                            <Italic>asentimiento no numerado (UA)</Italic>
+                        </Bold>.
+                    </Paragraph>
+                    <Paragraph>
+                        Permite confirmar el establecimiento de la conexión con la estación situada en el otro extremo.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="369.5" Y1="51" X2="379.5" Y2="51" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasAyudaBotoneraSuperior8" Visibility="Hidden">
+            <Polygon Points="427.5,32 421.5,52 433.5,52" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="400" Height="92" Stroke="#404040" Canvas.Left="401" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="409" Canvas.Top="58" Width="384" Height="78" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        El
+                        <Bold>botón
+                            <Italic>FRMR</Italic>
+                        </Bold> permite el envío de tramas de
+                        <Bold>
+                            <Italic>rechazo de trama (FRMR)</Italic>
+                        </Bold>.
+                    </Paragraph>
+                    <Paragraph>
+                        El envío de esta trama indica que la trama recibida tiene un error irrecuperable por retransmisión. Al recibir esta trama se produce la reinicialización del enlace.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="422.5" Y1="51" X2="432.5" Y2="51" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasAyudaBotoneraSuperior9" Visibility="Hidden">
+            <Polygon Points="480.5,32 474.5,52 486.5,52" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="400" Height="92" Stroke="#404040" Canvas.Left="454" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="462" Canvas.Top="58" Width="384" Height="78" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        El
+                        <Bold>botón
+                            <Italic>DISC</Italic>
+                        </Bold> permite el envío de tramas de
+                        <Bold>
+                            <Italic>solicitud de desconexión (DISC)</Italic>
+                        </Bold>.
+                    </Paragraph>
+                    <Paragraph>
+                        Permite finalizar el establecimiento de la conexión con la estación situada en el otro extremo.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="475.5" Y1="51" X2="485.5" Y2="51" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasAyudaBotoneraSuperior10" Visibility="Hidden">
+            <Polygon Points="533.5,32 527.5,52 539.5,52" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="400" Height="82" Stroke="#404040" Canvas.Left="507" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="515" Canvas.Top="58" Width="384" Height="68" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        El
+                        <Bold>botón
+                            <Italic>DM</Italic>
+                        </Bold> permite el envío de tramas de
+                        <Bold>
+                            <Italic>modo desconectado (DM)</Italic>
+                        </Bold>.
+                    </Paragraph>
+                    <Paragraph>
+                        Permite confirmar el fin del establecimiento de la conexión con la estación situada en el otro extremo.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="528.5" Y1="51" X2="538.5" Y2="51" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasBotoneraOpciones1" Visibility="Hidden">
+            <Polygon Points="674.5,32 668.5,52 680.5,52" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="300" Height="108" Stroke="#404040" Canvas.Left="637" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="645" Canvas.Top="58" Width="284" Height="94" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        El
+                        <Bold>botón de 
+                            <Italic>configuración</Italic>
+                        </Bold> permite configurar el
+                        <Italic>protocolo
+                        </Italic>, el
+                        <Italic>modo de trabajo
+                        </Italic> y
+                        <Italic>el canal de transmisión
+                            </Italic>.
+                    </Paragraph>
+                    <Paragraph>
+                        Se deplegará una ventana con 3 pestañas donde en cada pestaña se podrá acceder a una de las 3 secciones de la configuración.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="669.5" Y1="51" X2="679.5" Y2="51" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasBotoneraOpciones2" Visibility="Hidden">
+            <Polygon Points="749.5,32 743.5,52 755.5,52" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="300" Height="120" Stroke="#404040" Canvas.Left="637" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="645" Canvas.Top="58" Width="284" Height="106" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        El
+                        <Bold>botón de
+                            <Italic>guardado de capturas de tráfico</Italic>
+                        </Bold> permite
+                        <Bold>guardar
+                            </Bold> el intercambio de tramas actual realizado entre las estaciones conectadas.
+                    </Paragraph>
+                    <Paragraph>
+                        Se deplegará una ventana donde se elegirá la ubicación y el nombre del archivo en el que se guardará el intercambio de tramas.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="744.5" Y1="51" X2="754.5" Y2="51" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasBotoneraOpciones3" Visibility="Hidden">
+            <Polygon Points="824.5,32 818.5,52 830.5,52" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="300" Height="134" Stroke="#404040" Canvas.Left="637" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+            <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="645" Canvas.Top="58" Width="284" Height="120" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        El
+                        <Bold>botón de
+                            <Italic>cargado de capturas de tráfico</Italic>
+                        </Bold> permite
+                        <Bold>cargar
+                        </Bold> un intercambio de tramas realizado previamente entre 2 estaciones y el cual se encuentra correctamente almacenado.
+                    </Paragraph>
+                    <Paragraph>
+                        Se deplegará una ventana donde se elegirá la ubicación y el nombre del archivo en que se encuentra el intercambio de tramas que se desea cargar.
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Line X1="819.5" Y1="51" X2="829.5" Y2="51" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+    </Canvas>
+</Window>

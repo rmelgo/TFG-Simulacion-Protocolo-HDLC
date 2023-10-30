@@ -1,0 +1,196 @@
+﻿<Window x:Class="Simulador_HDLC.VentanaVisualizaciónTramaInformación"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Simulador_HDLC"
+        mc:Ignorable="d"
+        Icon="hdlc_logo.png"
+        Title="Trama a enviar" Height="280" Width="600" Background="#F5F5F5" MouseDown="Window_MouseDown">
+    <Canvas>
+        <Label Content="Tipo de trama" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="33" Canvas.Top="31"/>
+
+        <Border CornerRadius="5" BorderThickness="1" BorderBrush="Black" Background="White" Height="28" Width="220" Canvas.Left="145" Canvas.Top="33">
+            <TextBox x:Name="CajaTipoTrama" IsReadOnly="True" BorderThickness="0" Background="White" Margin="4,0" FontFamily="SegoeUI" FontSize="14" FontWeight="Regular" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Border>
+
+        <Button x:Name="BotonAyudaTipoTrama" Width="20" Height="20" BorderThickness="0" Background="#F5F5F5" Canvas.Left="380" Canvas.Top="36" Click="BotonAyudaTipoTrama_Click">
+            <Image Name="ImagenAyudaTipoTrama" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+        </Button>
+
+        <Label Content="CRC erróneo" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="451" Canvas.Top="31"/>
+
+        <Viewbox Height="20" Width="20" HorizontalAlignment="Left" Canvas.Left="545" Canvas.Top="36">
+            <CheckBox x:Name="BotonCRCErroneo" IsChecked="False"/>
+        </Viewbox>
+
+
+        <Rectangle x:Name="SeccionInformacionTrama" Width="532" Height="80" Fill="#E4E4E4" Stroke="Black" StrokeThickness="1" RadiusX="8" RadiusY="8" Canvas.Left="33" Canvas.Top="84">
+        </Rectangle>
+
+        <Border CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="White" Height="28" Width="80" Canvas.Left="64" Canvas.Top="102">
+            <TextBox x:Name="CajaDireccionEstacion" IsReadOnly="True" BorderThickness="0" Background="White" Margin="4,0" FontFamily="SegoeUI" FontSize="14" FontWeight="Regular" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Border>
+
+        <Label Content="Dirección" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="70" Canvas.Top="130"/>
+
+        <Border x:Name="BordeCajaBitCommandRequest" CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="White" Height="28" Width="50" Canvas.Left="186" Canvas.Top="102">
+            <ComboBox x:Name="CajaBitCommandRequest" BorderThickness="0" Background="White" IsEditable="True" IsEnabled="False" Margin="4,0" FontFamily="SegoeUI" FontSize="14" FontWeight="Regular" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionChanged="CajaBitCommandRequest_SelectionChanged" IsReadOnly="True"/>
+        </Border>
+
+        <Label Content="C/R" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="195" Canvas.Top="130"/>
+
+        <Border x:Name="BordeCajaNumeroSecuencia" CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="White" Height="28" Width="50" Canvas.Left="260" Canvas.Top="102">
+            <ComboBox x:Name="CajaNumeroSecuencia" BorderThickness="0" Background="White" IsEditable="True" Margin="4,0" FontFamily="SegoeUI" FontSize="14" FontWeight="Regular" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+        </Border>
+
+        <Label Content="NS" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="270" Canvas.Top="130"/>
+
+        <Border x:Name="BordeCajaBitSondeo" CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="White" Height="28" Width="50" Canvas.Left="334" Canvas.Top="102">
+            <ComboBox x:Name="CajaBitSondeo" BorderThickness="0" Background="White" IsEditable="True" Margin="4,0" FontFamily="SegoeUI" FontSize="14" FontWeight="Regular" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+        </Border>
+
+        <Label Content="P/F" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="343" Canvas.Top="130"/>
+
+        <Border x:Name="BordeCajaNumeroTramaEsperada" CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="White" Height="28" Width="50" Canvas.Left="408" Canvas.Top="102">
+            <ComboBox x:Name="CajaNumeroTramaEsperada" BorderThickness="0" Background="White" IsEditable="True" Margin="4,0" FontFamily="SegoeUI" FontSize="14" FontWeight="Regular" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+        </Border>
+
+        <Label Content="NR" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="418" Canvas.Top="130"/>
+
+        <Image Name="ImagenAdvertenciaTrama" Stretch="UniformToFill" Width="30" Source="warning-triangle.png" Visibility="Hidden" Canvas.Left="495" Canvas.Top="103"/>
+
+        <Button x:Name="BotonAyudaSeccionInformacionTrama" Width="20" Height="20" BorderThickness="0" Background="#E4E4E4" Canvas.Left="539" Canvas.Top="136" Click="BotonAyudaSeccionInformacionTrama_Click">
+            <Image Name="ImagenAyudaSeccionInformacionTrama" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+        </Button>
+
+        <Label Content="Info" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="33" Canvas.Top="195"/>
+
+        <Border CornerRadius="5" BorderThickness="1" BorderBrush="Black" Background="White" Height="28" Width="200" Canvas.Left="82" Canvas.Top="197">
+            <TextBox x:Name="CajaInfoTrama" BorderThickness="0" Background="White" Margin="4,0" FontFamily="SegoeUI" FontSize="14" FontWeight="Regular" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Border>
+
+        <Border CornerRadius="5" BorderThickness="1" BorderBrush="Black" Background="#0FD89E" Height="25" Width="80" Canvas.Left="380" Canvas.Top="198">
+            <Button Content="Enviar" x:Name="BotonEnviar" BorderThickness="0" Background="#0FD89E" Margin="4,0" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" BorderBrush="Black" Click="BotonEnviar_Click"/>
+        </Border>
+
+        <Border CornerRadius="5" BorderThickness="1" BorderBrush="Black" Background="#FF7B7B" Height="25" Width="80" Canvas.Left="485" Canvas.Top="198">
+            <Button Content="Cancelar" x:Name="BotonCancelar" BorderThickness="0" Background="#FF7B7B" Margin="4,0" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" BorderBrush="Black" Click="BotonCancelar_Click"/>
+        </Border>
+
+        <!--Seccion de los bocadillos de ayuda-->
+
+        <Canvas x:Name="CanvasAyudaTipoTrama" Visibility="Hidden">
+            <Polygon Points="390,58 396,78 384,78" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="520" Height="160" Stroke="#404040" Canvas.Left="17" Canvas.Top="77" RadiusX="8" RadiusY="8"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Canvas.Left="25" Canvas.Top="85">
+                <RichTextBox Background="#DCFFD6" BorderThickness="0" Width="504" Height="146" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True" VerticalScrollBarVisibility="Auto">
+                    <FlowDocument>
+                        <Paragraph>
+                            En este recuadro, se muestra el
+                            <Bold>tipo de trama</Bold> la cual el usuario pretende enviar. En el simulador existen 10 tipos de tramas:
+                        </Paragraph>
+                        <Paragraph Padding="10,0,0,0">
+                            -
+                            <Bold>
+                                <Italic>Información (I)</Italic>
+                            </Bold>: Permiten transmitir información de una estación a otra.
+                            <LineBreak/>
+                            -
+                            <Bold>
+                                <Italic>Receptor preparado (RR)</Italic>
+                            </Bold>: Permite confirmar la correcta recepción de tramas y permite indicar la disponibilidad para recibir más tramas.
+                            <LineBreak/>
+                            -
+                            <Bold>
+                                <Italic>Receptor no preparado (RNR)</Italic>
+                            </Bold>: Permite confirmar la correcta recepción de tramas y permite indicar la falta de disponibilidad para recibir más tramas.
+                            <LineBreak/>
+                            -
+                            <Bold>
+                                <Italic>Rechazo (REJ)</Italic>
+                            </Bold>: Permite confirmar la recepción de tramas de información anteriores a la N(R) y para solicitar la retransmisión de la trama N(R) y siguientes.
+                            <LineBreak/>
+                            -
+                            <Bold>
+                                <Italic>Rechazo selectivo (SREJ)</Italic>
+                            </Bold>: Permite confirmar la recepción de tramas de información anteriores a la N(R) y solicita la retransmisión de la trama N(R).
+                            <LineBreak/>
+                            -
+                            <Bold>
+                                <Italic>Solicitud de conexión (SABM)</Italic>
+                            </Bold>: Permite establecer una conexión con otra estación.
+                            <LineBreak/>
+                            -
+                            <Bold>
+                                <Italic>Solicitud de desconexión (DISC)</Italic>
+                            </Bold>: Permite finalizar una conexión activa con otra estación.
+                            <LineBreak/>
+                            -
+                            <Bold>
+                                <Italic>Asentimiento no numerado (UA)</Italic>
+                            </Bold>: Permite confirmar una solicitud de conexión o desconexión.
+                            <LineBreak/>
+                            -
+                            <Bold>
+                                <Italic>Modo desconectado (DM)</Italic>
+                            </Bold>: Permite confirmar una solicitud de desconexión.
+                            <LineBreak/>
+                            -
+                            <Bold>
+                                <Italic>Rechazo de trama (FRMR)</Italic>
+                            </Bold>: Permite indicar que la trama recibida tiene un error irrecuperable por retransmisión. Al recibirse esta trama se reinicia la conexión con el otro extremo.
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+            </ScrollViewer>
+            <Line X1="385" Y1="78" X2="395" Y2="78" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+        <Canvas x:Name="CanvasAyudaSeccionInformacionTrama" Visibility="Hidden">
+            <Polygon Points="537,146 517,140 517,152" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+            <Rectangle Fill="#DCFFD6" Width="500" Height="216" Stroke="#404040" Canvas.Left="18" Canvas.Top="17" RadiusX="8" RadiusY="8"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Canvas.Left="26" Canvas.Top="25">
+                <RichTextBox Background="#DCFFD6" BorderThickness="0" Width="484" Height="202" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True" VerticalScrollBarVisibility="Auto">
+                    <FlowDocument>
+                        <Paragraph>
+                            En esta sección, se muestra la
+                            <Bold>información básica</Bold> de la trama que se pretende enviar. También permite al usuario modificar a su gusto algunos de los parámetros de la trama. Dentro de la información básica de la trama se encuentra:
+                        </Paragraph>
+                        <Paragraph Padding="10,0,0,0">
+                            - El
+                            <Bold>
+                                <Italic>campo de dirección</Italic>
+                            </Bold>, el cual hace referencia a la estación a la que va dirigida la trama en el caso de enviar un comando o hace referencia a la estación que origina la trama en el caso de enviar un respuesta.
+                            <LineBreak/>
+                            - El
+                            <Bold>
+                                <Italic>bit C/R</Italic>
+                            </Bold>, el cual puede tomar 2 valores distintos. C en el caso de que la trama sea un comando y R en el caso de que la trama sea una respuesta a otra trama recibida anteriormente.
+                            <LineBreak/>
+                            - El
+                            <Bold>
+                                <Italic>número de secuencia (NS)</Italic>
+                            </Bold>, el cual hace referencia al número de la trama que se esta enviando.
+                            <LineBreak/>
+                            - El
+                            <Bold>
+                                <Italic>bit P/F</Italic>
+                            </Bold>, el cual si esta activo, sondea a la estación situada en el otro extremo en busca de una respuesta. Las respeustas a un sondeo tambien tienen activado el bit P/F.
+                            <LineBreak/>
+                            - El
+                            <Bold>
+                                <Italic>número de trama esperada (NR)</Italic>
+                            </Bold>, el cual hace referencia al número de la siguiente trama que se espera recibir por parte de la otra estación.
+                        </Paragraph>
+                        <Paragraph>
+                            Nota: El usuario puede configurar el valor del bit de C/R y de P/F ademas de los numeros de secuencia (NS) y trama esperada (NR) en las tramas en las que tenga sentido hacerlo.
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+            </ScrollViewer>
+            <Line X1="517" Y1="141" X2="517" Y2="151" Stroke="#DCFFD6" StrokeThickness="2"/>
+        </Canvas>
+
+    </Canvas>
+</Window>

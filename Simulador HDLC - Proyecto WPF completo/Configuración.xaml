@@ -1,0 +1,377 @@
+﻿<Window x:Class="Simulador_HDLC.Configuración"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Simulador_HDLC"
+        mc:Ignorable="d"
+        Icon="hdlc_logo.png"
+        Title="Configuración" Height="350" Width="500" MouseDown="Window_MouseDown">
+    <Grid>
+        <TabControl Background="#F5F5F5">
+            <TabItem Header="Protocolo" Width="100">
+                <Canvas>
+                    <Label Content="Configuracion de timeouts" FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Canvas.Left="50" Canvas.Top="34"/>
+
+                    <Rectangle x:Name="SeccionConfiguracionTimeouts" Width="240" Height="190" Fill="#E4E4E4" Stroke="Black" StrokeThickness="1" RadiusX="8" RadiusY="8" Canvas.Left="16" Canvas.Top="65"/>
+
+                    <Label Content="Timeout ante &#xD;&#xA; COMMAND" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="25" Canvas.Top="79"/>
+
+                    <Border x:Name="BordeCajaTimeoutCommand" CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="White" Height="28" Width="56" Canvas.Left="128" Canvas.Top="89">
+                        <TextBox x:Name="CajaTimeoutCommand" FontSize="14" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#404040" BorderThickness="0" Margin="4,0" TextChanged="CajaTimeoutCommand_TextChanged"/>
+                    </Border>
+
+                    <Label Content="ms" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Canvas.Left="187" Canvas.Top="89" Height="28"/>
+
+                    <Button x:Name="BotonAyudaTimeoutCommand" Width="20" Height="20" BorderThickness="0" Background="#E4E4E4" Canvas.Left="222" Canvas.Top="93" Click="BotonAyudaTimeoutCommand_Click">
+                        <Image Name="ImagenAyudaTimeoutCommand" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+                    </Button>
+
+                    <Label Content="Timeout ante &#xD;&#xA;     trama I" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="25" Canvas.Top="142"/>
+
+                    <Border x:Name="BordeCajaTimeoutTramaI" CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="White" Height="28" Width="56" Canvas.Left="128" Canvas.Top="153">
+                        <TextBox x:Name="CajaTimeoutTramaI" FontSize="14" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#404040" BorderThickness="0" Margin="4,0" TextChanged="CajaTimeoutTramaI_TextChanged"/>
+                    </Border>
+
+                    <Label Content="ms" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Canvas.Left="187" Canvas.Top="153" Height="28"/>
+
+                    <Button x:Name="BotonAyudaTimeoutTramaI" Width="20" Height="20" BorderThickness="0" Background="#E4E4E4" Canvas.Left="222" Canvas.Top="157" Click="BotonAyudaTimeoutTramaI_Click">
+                        <Image Name="ImagenAyudaTimeoutTramaI" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+                    </Button>
+
+                    <Label Content="Timeout ante &#xD;&#xA;   REQUEST" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="25" Canvas.Top="204"/>
+
+                    <Border x:Name="BordeCajaTimeoutRequest" CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="White" Height="28" Width="56" Canvas.Left="128" Canvas.Top="215">
+                        <TextBox x:Name="CajaTimeoutRequest" FontSize="14" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#404040" BorderThickness="0" Margin="4,0" TextChanged="CajaTimeoutRequest_TextChanged"/>
+                    </Border>
+
+                    <Label Content="ms" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Canvas.Left="187" Canvas.Top="215" Height="28"/>
+
+                    <Button x:Name="BotonAyudaTimeoutRequest" Width="20" Height="20" BorderThickness="0" Background="#E4E4E4" Canvas.Left="222" Canvas.Top="219" Click="BotonAyudaTimeoutRequest_Click">
+                        <Image Name="ImagenAyudaTimeoutRequest" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+                    </Button>
+
+
+                    <Label Content="Configuración de envío/recepción &#xA;       de tramas de información" FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Height="43" Canvas.Left="280" Canvas.Top="22" Width="202"/>
+
+                    <Rectangle x:Name="SeccionConfiguracionEnvioRecepcionTramasInformacion" Width="200" Height="150" Fill="#E4E4E4" Stroke="Black" StrokeThickness="1" RadiusX="8" RadiusY="8" Canvas.Left="280" Canvas.Top="65"/>
+
+                    <Label Content="Tamaño &#xD;&#xA;ventana" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="301" Canvas.Top="73"/>
+
+                    <Border CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="White" Height="28" Width="48" Canvas.Left="390" Canvas.Top="82">
+                        <ComboBox x:Name="CajaTamañoVentana" BorderThickness="0" Background="White" IsEditable="True" Margin="4,0" IsReadOnly="True"/>
+                    </Border>
+
+                    <Button x:Name="BotonAyudaTamañoVentana" Width="20" Height="20" BorderThickness="0" Background="#E4E4E4" Canvas.Left="446" Canvas.Top="85" Click="BotonAyudaTamañoVentana_Click">
+                        <Image Name="ImagenAyudaTamañoVentana" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+                    </Button>
+
+                    <Label Content="    Tramas&#xD;&#xA;   erróneas&#xD;&#xA;consecutivas&#xD;&#xA; permitidas" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="288" Canvas.Top="125"/>
+
+                    <Border CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="White" Height="28" Width="48" Canvas.Left="390" Canvas.Top="155">
+                        <ComboBox x:Name="CajaTramasErroneasConsecutivasPermitidas" BorderThickness="0" Background="White" IsEditable="True" Margin="4,0" IsReadOnly="True"/>
+                    </Border>
+                                     
+                    <Button x:Name="BotonAyudaTramasErroneasConsecutivasPermitidas" Width="20" Height="20" BorderThickness="0" Background="#E4E4E4" Canvas.Left="446" Canvas.Top="159" Click="BotonAyudaTramasErroneasConsecutivasPermitidas_Click">
+                        <Image Name="ImagenAyudaTramasErroneasConsecutivasPermitidas" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+                    </Button>
+
+                    <Border CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="#0FD89E" Height="25" Width="80" Canvas.Left="299" Canvas.Top="230">
+                        <Button Content="Aceptar" x:Name="BotonAceptarProtocolo" BorderThickness="0" Background="#0FD89E" Margin="4,0" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" Click="BotonAceptarConfiguracion_Click"/>
+                    </Border>
+
+                    <Border CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="#FF7B7B" Height="25" Width="80" Canvas.Left="400" Canvas.Top="230">
+                        <Button Content="Cancelar" x:Name="BotonCancelarProtocolo" BorderThickness="0" Background="#FF7B7B" Margin="4,0" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" Click="BotonCancelarConfiguracion_Click"/>
+                    </Border>
+
+                    <!--Seccion de los bocadillos de ayuda-->
+
+                    <Canvas x:Name="CanvasAyudaTimeoutCommand" Visibility="Hidden">
+                        <Polygon Points="263,97 263,109 243,103" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+                        <Rectangle Fill="#DCFFD6" Width="218" Height="166" Stroke="#404040" Canvas.Left="262" Canvas.Top="50" RadiusX="8" RadiusY="8"/>
+                        <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="270" Canvas.Top="58" Width="202" Height="150" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                            <FlowDocument>
+                                <Paragraph>
+                                    El
+                                    <Italic>
+                                        <Bold>timeout ante COMMAND</Bold>
+                                    </Italic> hace referencia al tiempo máximo que una estación espera una respuesta cuando esta envia un
+                                    <Bold>comando</Bold> con el
+                                    <Bold>bit de sondeo activado</Bold>.                                   
+                                </Paragraph>
+                                <Paragraph>
+                                    En el caso de
+                                    <Bold>no recibir respuesta</Bold>  al comando con el bit de sondeo activado, la estación
+                                    <Bold>reenviará</Bold> el comando de nuevo.
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Line X1="263" Y1="98" X2="263" Y2="108" Stroke="#DCFFD6" StrokeThickness="2"/>
+                    </Canvas>
+
+                    <Canvas x:Name="CanvasAyudaTimeoutTramaI" Visibility="Hidden">
+                        <Polygon Points="263,161 263,173 243,167" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+                        <Rectangle Fill="#DCFFD6" Width="218" Height="166" Stroke="#404040" Canvas.Left="262" Canvas.Top="80" RadiusX="8" RadiusY="8"/>
+                        <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="270" Canvas.Top="88" Width="202" Height="150" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                            <FlowDocument>
+                                <Paragraph>
+                                    El
+                                    <Italic>
+                                        <Bold>timeout ante trama I</Bold>
+                                    </Italic> hace referencia al tiempo máximo que una estación espera reconocimiento de
+                                    <Bold>una trama de información</Bold> anteriormente enviada.
+                                </Paragraph>
+                                <Paragraph>
+                                    En el caso de
+                                    <Bold>no recibir reconocimiento</Bold>, la estación
+                                    <Bold>sondeará</Bold> al otro extremo en busca de un reconocimiento.
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Line X1="263" Y1="162" X2="263" Y2="172" Stroke="#DCFFD6" StrokeThickness="2"/>
+                    </Canvas>
+
+                    <Canvas x:Name="CanvasAyudaTimeoutRequest" Visibility="Hidden">
+                        <Polygon Points="263,223 263,235 243,229" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+                        <Rectangle Fill="#DCFFD6" Width="218" Height="196" Stroke="#404040" Canvas.Left="262" Canvas.Top="60" RadiusX="8" RadiusY="8"/>
+                        <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="270" Canvas.Top="68" Width="202" Height="180" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                            <FlowDocument>
+                                <Paragraph>
+                                    El
+                                    <Italic>
+                                        <Bold>timeout ante REQUEST</Bold>
+                                    </Italic> hace referencia al tiempo máximo que una estación espera la
+                                    <Bold>recepción de un comando</Bold> tras realizar el
+                                    <Bold>envío de una respuesta</Bold>. En nuestro caso esta situación sólo se produce tras el
+                                    envío de una trama de <Bold>rechazo de trama (FRMR)</Bold>.
+                                </Paragraph>
+                                <Paragraph>
+                                    En el caso de
+                                    <Bold>no recibir comando</Bold>, la estación
+                                    <Bold>reenviará</Bold> la respuesta de nuevo.
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Line X1="263" Y1="224" X2="263" Y2="234" Stroke="#DCFFD6" StrokeThickness="2"/>
+                    </Canvas>
+
+                    <Canvas x:Name="CanvasAyudaTamañoVentana" Visibility="Hidden">
+                        <Polygon Points="425,89 425,101 445,95" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+                        <Rectangle Fill="#DCFFD6" Width="218" Height="196" Stroke="#404040" Canvas.Left="208" Canvas.Top="60" RadiusX="8" RadiusY="8"/>
+                        <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="216" Canvas.Top="68" Width="202" Height="180" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                            <FlowDocument>
+                                <Paragraph>
+                                    El
+                                    <Italic>
+                                        <Bold>tamaño de la ventana</Bold>
+                                    </Italic> hace referencia al número máximo de tramas que en un determinado momento pueden estar pendientes de
+                                    <Bold>confirmación</Bold>.
+                                </Paragraph>
+                                <Paragraph>
+                                    En nuestro caso, el tamaño de la ventana puede tomar valores del
+                                    <Bold>1</Bold> al <Bold>7</Bold>.
+                                </Paragraph>
+                                <Paragraph>
+                                    Es imprescindible que ambas estaciones esten configuradas con el
+                                    <Bold>mismo</Bold> tamaño de ventana.
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Line X1="425" Y1="90" X2="425" Y2="100" Stroke="#DCFFD6" StrokeThickness="2"/>
+                    </Canvas>
+
+                    <Canvas x:Name="CanvasAyudaTramasErroneasConsecutivasPermitidas" Visibility="Hidden">
+                        <Polygon Points="425,163 425,175 445,169" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+                        <Rectangle Fill="#DCFFD6" Width="218" Height="180" Stroke="#404040" Canvas.Left="208" Canvas.Top="75" RadiusX="8" RadiusY="8"/>
+                        <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="216" Canvas.Top="83" Width="202" Height="164" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                            <FlowDocument>
+                                <Paragraph>
+                                    El
+                                    <Italic>
+                                        <Bold>número de tramas erróneas consecutivas permitidas</Bold>
+                                    </Italic> hace referencia al número máximo de tramas erróneas consecutivas permitidas que una estación puede enviar antes de
+                                    <Bold>desconectar el enlace físico</Bold> con la otra estación conectada.
+                                </Paragraph>
+                                <Paragraph>
+                                    En nuestro caso, el número de tramas erróneas consecutivas permitidas puede tomar valores del
+                                    <Bold>1</Bold> al
+                                    <Bold>7</Bold>.
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Line X1="425" Y1="164" X2="425" Y2="174" Stroke="#DCFFD6" StrokeThickness="2"/>
+                    </Canvas>
+
+                </Canvas>
+
+            </TabItem>
+            <TabItem Header="Modo de trabajo" Width="115">
+                <Canvas>
+
+                    <Border x:Name="BordeBotonModoManual" CornerRadius="5" BorderThickness="1" BorderBrush="#707070" Background="White" Height="125" Width="125" Canvas.Left="95" Canvas.Top="48">
+                        <Button x:Name="BotonModoManual" Background="White" BorderThickness="0" Margin="4,0" Click="BotonModoManual_Click">
+                            <Image Name="ImagenModoManual" Stretch="UniformToFill" Source="manual.png"/>
+                        </Button>
+                    </Border>
+
+                    <Border x:Name="BordeBotonModoSemiautomático" CornerRadius="5" BorderThickness="1" BorderBrush="#707070" Background="White" Height="125" Width="125" Canvas.Left="260" Canvas.Top="48">
+                        <Button x:Name="BotonModoSemiautomático" Background="White" BorderThickness="0" Margin="4,0" Click="BotonModoSemiautomático_Click">
+                            <Image Name="ImagenModoSemiautomatico" Stretch="Uniform" Width="100" Source="automatico.png"/>
+                        </Button>
+                    </Border>
+
+
+                    <Label Content="Manual" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="128" Canvas.Top="178"/>
+
+                    <Label Content="Semiautomático" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="267" Canvas.Top="178"/>
+
+                    <Button x:Name="BotonAyudaModoManual" Width="20" Height="20" BorderThickness="0" Background="#F5F5F5" Canvas.Left="200" Canvas.Top="183" Click="BotonAyudaModoManual_Click">
+                        <Image Name="ImagenAyudaModoManual" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+                    </Button>
+                 
+                    <Button x:Name="BotonAyudaModoSemiautomático" Width="20" Height="20" BorderThickness="0" Background="#F5F5F5" Canvas.Left="385" Canvas.Top="183" Click="BotonAyudaModoSemiautomático_Click">
+                        <Image Name="ImagenAyudaModoSemiautomatico" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+                    </Button>
+
+                    <Border CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="#0FD89E" Height="25" Width="80" Canvas.Left="209" Canvas.Top="230">
+                        <Button Content="Aceptar" x:Name="BotonAceptarModoDeTrabajo" BorderThickness="0" Background="#0FD89E" Margin="4,0" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" Click="BotonAceptarConfiguracion_Click"/>
+                    </Border>
+
+                    <Border CornerRadius="5" BorderThickness="1" BorderBrush="#404040" Background="#FF7B7B" Height="25" Width="80" Canvas.Left="316" Canvas.Top="230">
+                        <Button Content="Cancelar" x:Name="BotonCancelarModoDeTrabajo" BorderThickness="0" Background="#FF7B7B" Margin="4,0" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" Click="BotonCancelarConfiguracion_Click"/>
+                    </Border>
+                    
+                    <!--Seccion de los bocadillos de ayuda-->
+
+                    <Canvas x:Name="CanvasAyudaModoManual" Visibility="Hidden">
+                        <Polygon Points="240,187 240,199 220,193" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+                        <Rectangle Fill="#DCFFD6" Width="193" Height="92" Stroke="#404040" Canvas.Left="239" Canvas.Top="125" RadiusX="8" RadiusY="8"/>
+                        <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="247" Canvas.Top="133" Width="177" Height="76" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                            <FlowDocument>
+                                <Paragraph>
+                                    Con el modo <Bold>manual</Bold>, la estación no responderá automáticamente ante ninguna situación, tampoco se producirán timeouts, ni se generarán tramas erróneas.
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Line X1="240" Y1="188" X2="240" Y2="198" Stroke="#DCFFD6" StrokeThickness="2"/>
+                    </Canvas>
+
+                    <Canvas x:Name="CanvasAyudaModoSemiautomatico" Visibility="Hidden">
+                        <Polygon Points="364,187 364,199 384,193" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+                        <Rectangle Fill="#DCFFD6" Width="355" Height="270" Stroke="#404040" Canvas.Left="10" Canvas.Top="10" RadiusX="8" RadiusY="8"/>
+                        <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="18" Canvas.Top="18" Width="339" Height="254" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                            <FlowDocument>
+                                <Paragraph>
+                                    Con el modo
+                                    <Bold>semiautomático</Bold>, la estación responderá de manera automática en las siguientes situaciones:
+                                </Paragraph>
+                                <Paragraph Padding="10,0,0,0">
+                                    - Solicitudes de conexión (SABM) y solicitudes de desconexión (DISC).
+                                    <LineBreak/>
+                                    - Respuestas a tramas que tengan el bit de sondeo activado.
+                                    <LineBreak/>
+                                    - Retransmisión de las tramas rechazadas por un comando REJ o SREJ.
+                                    <LineBreak/>
+                                    - Envío de una trama de rechazo de trama (FRMR) cuando se produzca una situación de excepción en la comunicación.
+                                    <LineBreak/>
+                                    - Activación automática del bit de sondeo de una trama de información cuando se vaya a agotar el tamaño de la ventana.
+                                    <LineBreak/>
+                                    - Generación de tramas debido a la expiración de los timeouts correspondientes (Ver ayuda timeouts para obtener mas información).
+                                </Paragraph>
+                                <Paragraph>
+                                    Además, en este modo, se permite el envio de tramas erróneas.
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Line X1="364" Y1="188" X2="364" Y2="198" Stroke="#DCFFD6" StrokeThickness="2"/>
+                    </Canvas>
+
+                </Canvas>
+            </TabItem>
+            <TabItem Header="Canal" Width="100">
+                <Canvas>
+
+                    <Label Content="Retardo (ms)" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="86" Canvas.Top="60"/>
+
+                    <Border x:Name="BordeCajaRetardo" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Background="White" Height="28" Width="110" Canvas.Left="201" Canvas.Top="60">
+                        <TextBox x:Name="CajaRetardo" FontSize="14" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" Margin="4,0" TextChanged="CajaRetardo_TextChanged"/>
+                    </Border>
+
+                    <Button x:Name="BotonAyudaRetardo" Width="20" Height="20" BorderThickness="0" Background="#F5F5F5" Canvas.Left="337" Canvas.Top="64" Click="BotonAyudaRetardo_Click">
+                        <Image Name="ImagenAyudaRetardo" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+                    </Button>
+
+                    <Label Content="Probabilidad de error" FontFamily="Segoe UI" FontSize="14" FontWeight="DemiBold" Canvas.Left="86" Canvas.Top="132"/>
+
+                    <Slider x:Name="SliderTasaError" Width="240" Height="21" Canvas.Left="91" Canvas.Top="173" Minimum="0" Maximum="1" TickFrequency="0.05" IsSnapToTickEnabled="True" ValueChanged="SliderTasaError_ValueChanged"/>
+
+                    <Border CornerRadius="5" BorderThickness="1" BorderBrush="Black" Background="White" Height="30" Width="50" Canvas.Left="362" Canvas.Top="168">
+                        <TextBox x:Name="CajaTasaError" FontSize="14" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" Margin="4,0" IsReadOnly="True"/>
+                    </Border>
+
+                    <Border CornerRadius="5" BorderThickness="1" BorderBrush="Black" Background="#0FD89E" Height="25" Width="80" Canvas.Left="225" Canvas.Top="230">
+                        <Button Content="Aceptar" x:Name="BotonAceptarCanalTransmision" BorderThickness="0" Background="#0FD89E" Margin="4,0" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" Click="BotonAceptarConfiguracion_Click"/>
+                    </Border>
+
+                    <Border CornerRadius="5" BorderThickness="1" BorderBrush="Black" Background="#FF7B7B" Height="25" Width="80" Canvas.Left="332" Canvas.Top="230">
+                        <Button Content="Cancelar" x:Name="BotonCancelarCanalTransmision" BorderThickness="0" Background="#FF7B7B" Margin="4,0" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" Click="BotonCancelarConfiguracion_Click"/>
+                    </Border>
+                    
+                    <Button x:Name="BotonAyudaTasaError" Width="20" Height="20" BorderThickness="0" Background="#F5F5F5" Canvas.Left="251" Canvas.Top="138" Click="BotonAyudaTasaError_Click">
+                        <Image Name="ImagenAyudaTasaError" Stretch="UniformToFill" Source="ayuda-blue.png"/>
+                    </Button>
+
+                    <!--Seccion de los bocadillos de ayuda-->
+
+                    <Canvas x:Name="CanvasAyudaRetardo" Visibility="Hidden">
+                        <Polygon Points="347,85 353,105 341,105" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+                        <Rectangle Fill="#DCFFD6" Width="393" Height="176" Stroke="#404040" Canvas.Left="39" Canvas.Top="104" RadiusX="8" RadiusY="8"/>
+                        <RichTextBox Background="#DCFFD6" BorderThickness="0" Canvas.Left="47" Canvas.Top="112" Width="377" Height="162" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True">
+                            <FlowDocument>
+                                <Paragraph>
+                                    El
+                                    <Bold>retardo</Bold> hace referencia al tiempo transcurrido desde que se produce el envio de la trama desde la estación de origen hasta que se produce la recepción de la trama en la estación de destino.
+                                </Paragraph>
+                                <Paragraph>
+                                    El retardo solo afecta a las
+                                    <Bold>tramas enviadas</Bold> y no a las tramas recibidas (las tramas recibidas sufrirán el retardo que se haya configurado en la estación que las envía).
+                                </Paragraph>
+                                <Paragraph>
+                                    Aunque es posible definir retardos distintos en los dos sentidos de la comunicación, para simular el comportamiento de un único enlace, ambos terminales deben tener configurado el
+                                    <Bold>mismo</Bold> valor.
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Line X1="342" Y1="105" X2="352" Y2="105" Stroke="#DCFFD6" StrokeThickness="2"/>
+                    </Canvas>
+
+                    <Canvas x:Name="CanvasAyudaTasaError" Visibility="Hidden">
+                        <Polygon Points="261,135 255,115 267,115" Fill="#DCFFD6" Stroke="#404040" StrokeThickness="1"/>
+                        <Rectangle Fill="#DCFFD6" Width="475" Height="112" Stroke="#404040" Canvas.Left="4" Canvas.Top="4" RadiusX="8" RadiusY="8"/>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Canvas.Left="12" Canvas.Top="12">
+                            <RichTextBox Background="#DCFFD6" BorderThickness="0" Width="459" Height="96" FontFamily="Segoe UI" FontSize="11" IsReadOnly="True" VerticalScrollBarVisibility="Auto">
+                                <FlowDocument>
+                                    <Paragraph>
+                                        La
+                                        <Bold>tasa de error</Bold> hace referencia a la probabilidad de que una trama enviada sea recibida de manera errónea debido a una alteración en el contenido de la trama.
+                                    </Paragraph>
+                                    <Paragraph>
+                                        La tasa de error puede tomar valores comprendidos entre 0 y 1 donde el valor 0 corresponde con una probabilidad del 0% mientras que el valor 1 corresponde con una probabilidad del 100%.
+                                    </Paragraph>
+                                    <Paragraph>
+                                        Si la estación se encuentra en el modo de trabajo manual, la tasa de error será por defecto de 0 ya que no es posible generar tramas erróneas en este modo de trabajo.
+                                    </Paragraph>
+                                    <Paragraph>
+                                        Si se establece una conexión física entre 2 estaciones con el modo de trabajo semiautomatico, sería conveniente ajustar la tasa de error de ambos terminales con el mismo valor, aunque no es obligatorio.
+                                    </Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
+                        </ScrollViewer>
+                        <Line X1="256" Y1="115" X2="266" Y2="115" Stroke="#DCFFD6" StrokeThickness="2"/>
+                    </Canvas>
+
+                </Canvas>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,30 @@
+﻿<Window x:Class="Simulador_HDLC.VentanaAdvertencia"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Simulador_HDLC"
+        mc:Ignorable="d"
+        Icon="hdlc_logo.png"
+        Title="Advertencia" Height="230" Width="460">
+    <Canvas>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="146"></ColumnDefinition>
+                <ColumnDefinition Width="306"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="90"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Image Name="ImagenIcono" Stretch="Uniform" Source="advertencia.png" Height="72" Grid.Column="0" Grid.Row="1"/>
+
+            <TextBlock Name="Texto" Text="" TextWrapping="Wrap" Width="275" HorizontalAlignment="Right" FontFamily="SegoeUI" FontSize="14" FontWeight="DemiBold" Grid.Column="1" Grid.Row="1" Margin="10, 0, 20, 0" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Border x:Name="BordeAceptar" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Background="#0FD89E" Height="25" Width="80" Grid.Column="1" Grid.Row="2" Canvas.Left="355" Canvas.Top="158">
+            <Button Content="Aceptar" x:Name="BotonAceptar" BorderThickness="0" Background="#0FD89E" Margin="4,0" FontFamily="Segoe UI" FontSize="12" FontWeight="DemiBold" BorderBrush="Black" Click="BotonAceptar_Click"/>
+        </Border>
+    </Canvas>
+</Window>

@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{906D3EC5-50AB-42C7-98F7-9437AAEC5DB1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Simulador_HDLC</RootNamespace>
+    <AssemblyName>Simulador HDLC</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CanalTransmisión.cs" />
+    <Compile Include="Configuración.xaml.cs">
+      <DependentUpon>Configuración.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Estación.cs" />
+    <Compile Include="ModoDeTrabajo.cs" />
+    <Compile Include="NamedPipeClient.cs" />
+    <Compile Include="NamedPipeServer.cs" />
+    <Compile Include="Protocolo.cs" />
+    <Compile Include="TipoSituaciónEstación.cs" />
+    <Compile Include="TipoTrama.cs" />
+    <Compile Include="TipoTramaControl.cs" />
+    <Compile Include="Trama.cs" />
+    <Compile Include="VentanaAdvertencia.xaml.cs">
+      <DependentUpon>VentanaAdvertencia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaProgreso.xaml.cs">
+      <DependentUpon>VentanaProgreso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaVisualizaciónTramaInformación.xaml.cs">
+      <DependentUpon>VentanaVisualizaciónTramaInformación.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaVisualizaciónDetalleTramaNoNumerada.xaml.cs">
+      <DependentUpon>VentanaVisualizaciónDetalleTramaNoNumerada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaVisualizaciónDetalleTramaSupervisión.xaml.cs">
+      <DependentUpon>VentanaVisualizaciónDetalleTramaSupervisión.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaVisualizaciónDetalleTramaInformación.xaml.cs">
+      <DependentUpon>VentanaVisualizaciónDetalleTramaInformación.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaVisualizaciónTrama.xaml.cs">
+      <DependentUpon>VentanaVisualizaciónTrama.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Configuración.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="VentanaAdvertencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaProgreso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaVisualizaciónTramaInformación.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaVisualizaciónDetalleTramaNoNumerada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaVisualizaciónDetalleTramaSupervisión.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaVisualizaciónDetalleTramaInformación.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaVisualizaciónTrama.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="manual.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="automatico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ayuda-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Flecha verde.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="boton-web-de-ayuda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="settings_work_tool_icon_123854.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="disquete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="carga-en-la-nube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="advertencia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="warning-triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pc-de-escritorio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="sobre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="modo_lectura.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="modo-grafico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="hdlc_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Campos_trama_HDLC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Campos_trama_control_informacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Campos_trama_control_supervision.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Tipos_tramas_supervision.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Descripcion_tipos_tramas_supervision.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Campos_trama_control_no_numerada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Tipos_tramas_no_numeradas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Descripcion_tipos_tramas_no_numeradas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="camara.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
