@@ -147,6 +147,10 @@ Dentro de la **configuración de la estación**, existen 3 secciones:
 
 Para acceder a la configuración, se debe hacer click a un botón con una rueda dentada que se encuentra en la esquina superior derecha. 
 
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/359b8ee3-b0a5-45a1-b85d-754d9155c8dd">
+</p>
+
 ### Configuración del protocolo de la estación
 
 Al acceder a la configuración de la estación, se desplegará una ventana en la que se mostrará por defecto la sección de la configuración del protocolo de la estación. Esta sección tiene el siguiente aspecto:
@@ -357,7 +361,7 @@ Al acceder a la composición detallada de una trama, se desplegará una nueva ve
 
 De esta manera, en función del tipo de trama, se desplegará una ventana diferente para representar la composición detallada de la trama. 
 
-## Visualización del detalle de una trama no numerada
+### Visualización del detalle de una trama no numerada
 
 La composición detallada de una trama no numerada, se mostrará en una ventana con el siguiente aspecto:
 
@@ -391,7 +395,7 @@ En esta ventana, se muesta la siguiente información:
   - Tipo de trama no numerada (bits 3, 4, 6, 7, 8) 
   - Estado del bit P/F (bit 5) 
 
-## Visualización del detalle de una trama de información
+### Visualización del detalle de una trama de información
 
 La composición detallada de una trama de información, se mostrará en una ventana con el siguiente aspecto:
 
@@ -425,7 +429,7 @@ En esta ventana, se muesta la siguiente información:
   - Estado del bit P/F (bit 5) 
   - Número de trama esperada (bits 6, 7, 8)
  
-  ## Visualización del detalle de una trama de supervisión
+### Visualización del detalle de una trama de supervisión
 
 La composición detallada de una trama de supervisión, se mostrará en una ventana con el siguiente aspecto:
 
@@ -459,3 +463,14 @@ En esta ventana, se muesta la siguiente información:
   - Tipo de trama de supervisión (bits 3, 4) 
   - Estado del bit P/F (bit 5) 
   - Número de trama esperada (bits 6, 7, 8)
+
+## Fin del establecimiento de la conexión
+
+Una vez se ha realizado el intercambio correspondiente de tramas entre 2 estaciones fisicamente conectadas y se desea poner fin a dicha conexión física, se deberá pulsar el botón de "*Finalizar*" situado en la parte inferior de la ventana principal. 
+Al realizar esta acción, se desplegará la siguiente ventana:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/fdf76a4f-ac0a-496a-a5b6-fe487b8fdba1">
+</p>
+
+
