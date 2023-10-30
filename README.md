@@ -105,7 +105,9 @@ En este diagrama, existen 3 tipos de clases:
 
 Al abrir el fichero ***Simulador HDLC.exe***, inicialmente se presentará una ventana similar a la que se presenta en la siguiente imagen:
 
-![Ejemplo ejecucion 1](https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/fabc26a8-64c1-4b69-ae1d-633d069cdada)
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/fabc26a8-64c1-4b69-ae1d-633d069cdada">
+</p>
 
 La ventana principal se agrupa en 3 secciones principales:
 
@@ -149,7 +151,9 @@ Para acceder a la configuración, se debe hacer click a un botón con una rueda 
 
 Al acceder a la configuración de la estación, se desplegará una ventana en la que se mostrará por defecto la sección de la configuración del protocolo de la estación. Esta sección tiene el siguiente aspecto:
 
-![Ejemplo ejecucion 2](https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/c280d274-4db5-4a59-95bb-1b8a8806b6cf)
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/c280d274-4db5-4a59-95bb-1b8a8806b6cf">
+</p>
 
 Dentro de la sección de la configuración del protocolo de la estación, se identifican 2 subsecciones:
 
@@ -172,7 +176,9 @@ Dentro de la sección de la configuración del protocolo de la estación, se ide
 
 La sección de la configuración del modo de trabajo de la estación tiene el siguiente aspecto:
 
-![Ejemplo ejecucion 3](https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/8aab81bd-0ad8-4afa-8079-b4d49d402a9c)
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/8aab81bd-0ad8-4afa-8079-b4d49d402a9c">
+</p>
 
 La estación tiene 2 modos de trabajo en los que la estación puede funcionar:
 
@@ -183,7 +189,9 @@ La estación tiene 2 modos de trabajo en los que la estación puede funcionar:
 
 La sección de la configuración del canal de transmisión de la estación tiene el siguiente aspecto:
 
-![Ejemplo ejecucion 4](https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/bd9ca946-11ad-4382-8db1-c64249ad2dbd)
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/bd9ca946-11ad-4382-8db1-c64249ad2dbd">
+</p>
 
 Dentro de la sección de la configuración del canal de transmisión de la estación, se identifican 2 parámetros fundamentales:
 
@@ -191,3 +199,145 @@ Dentro de la sección de la configuración del canal de transmisión de la estac
   - **Modo manual**: La tasa de error hace referencia a la probabilidad de que una trama enviada sea recibida de manera errónea debido a una alteración en el contenido de la trama.
 
 **Nota**: Para obtener mas información del funcionamiento o significado de estos parámetros, se recomienda utilizar el manual de usuario del simulador o utilizar los botones de ayuda con el símbolo "?".
+
+### Guardar una configuración
+
+Para guardar la configuración de la estación, se debe pulsar el botón de "*Aceptar*" y si se quieren desechar los cambios realizados sobre la configuración se debe pulsar el botón de "*Cancelar*".
+
+Si en alguno de los parámetros de configuración, se ha introducido un valor sintácticamente erróneo, el recuadro de dicho parámetro se marcará en rojo como se muestra en la siguiente imagen:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/530ba847-0732-44bd-8044-22229bbae6b5">
+</p>
+
+Si se intenta guardar una configuración con algún valor sintácticamente erróneo, se cancelará el guardado de dicha configuración y se mostrará la siguiente ventana:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/ae4a2864-f3d7-4e9c-b333-41f20f754cf7">
+</p>
+
+## Establecimiento de la conexión
+
+El principal objetivo del simulador es establecer una conexión física entre 2 estaciones de forma que estas estaciones puedan intercambiar tramas siguiendo el protocolo HDLC. 
+
+De esta manera, para establecer una conexión física deben ejecutarse 2 estaciones y se deben seguir los siguientes pasos:
+
+- **Paso 1**: Configurar los nombres de las estaciones que se van a conectar fisicamente de manera que las estaciones que se vayan a conectar tengan un nombre de estación distinto.
+
+  Si las 2 estaciones que se van a conectar tienen el mismo nombre se producirá un error y se desplegará una ventana como la que se muestra en la siguiente imagen:
+
+  <p align="center">
+    <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/d35f1758-176a-414e-8072-72b8b30791e7">
+  </p>
+
+  Para configurar el nombre de la estación, se utilizará el recuadro situado en la esquina superior izquierda de la ventana principal.
+
+  <p align="center">
+    <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/a3eae5f8-1194-4a25-b82f-7ce0374ed600">
+  </p>
+
+- **Paso 2**: Pulsar el botón de "*Inicializar*" situado en la parte inferior de la ventana principal en la primera estación. Al realizar esta acción, se desplegará la siguiente ventana:
+
+  <p align="center">
+    <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/df572b81-b1e0-4fee-ace6-a8ce76fd8faf">
+  </p>
+
+  En esta ventana, se indica que la estación esta buscando otra estación con la cual realizar el establecimiento de la conexión física.
+
+- **Paso 3**: Pulsar el botón de "*Inicializar*" situado en la parte inferior de la ventana principal en la segunda estación. Al realizar esta acción, se habrá realizado la conexión física de ambas estaciones correctamente (si los nombres de las estaciones no coinciden) y se desplegará la siguiente ventana:
+
+  <p align="center">
+    <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/653972b6-9a79-4eb1-a168-8086f3a1f67f">
+  </p>
+
+## Envío de tramas
+
+Una vez se ha establecido una conexión física entre 2 estaciones, el siguiente paso es intercambiar tramas entre las 2 estacionnes. Para ello, se deben seguir los siguientes pasos:
+
+- **Paso 1**: Elegir el tipo de trama que se desea enviar.
+
+  En la parte superior de la ventana principal existe una serie de botones con los diferentes tipos de trama que pueden enviarse. Estos botones solo se activan cuando se ha establecido una conexión física con otra estación.
+
+  <p align="center">
+    <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/01d90398-6055-46e1-b3df-4e7d16c81733">
+  </p>
+
+- **Paso 2**: Pulsar el botón relacionado con el tipo de trama que se desea enviar.
+
+  Para enviar una trama, el usuario simplemente tiene que pulsar el botón correspondiente al tipo de trama que desee enviar. Al realizar esto, se presentará una ventana en la que se mostrará información básica de la trama que se desea enviar y que tiene el siguiente     aspecto:
+
+  <p align="center">
+    <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/f59741b5-4c12-4555-906f-4d6b78328552">
+  </p>
+
+  Si la trama que se desea enviar es una trama de información, la ventana en la que se mostrará información básica de la trama que se desea enviar contará con 2 elementos adicionales y tendrá el siguiente aspecto:
+
+  <p align="center">
+    <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/5985451a-4e19-4197-86ec-f454625bb077">
+  </p>
+
+- **Paso 3**: Configurar los parámetros de la trama que se desea enviar. En concreto, se podrá modificar la siguiente información de la trama:
+  
+  - Información sobre el bit P/F. 
+  - Información sobre el número de secuencia (NS) en tramas que cuenten con número de secuencia. 
+  - Información sobre el número de trama esperada (NR) en tramas que cuenten con número de trama esperada.
+ 
+  Si la trama a enviar se trata de una trama de información, se podran configurar adicionalmente:
+
+  - La información que se envía en la trama.
+  - La posibilidad de enviar una trama errónea.
+ 
+- **Paso 4**: Enviar la trama. Para ello, se deberá pulsar el botón “*Enviar*” para enviar la trama a la estación situada en el otro extremo. 
+
+**Nota**: Si el usuario hace click derecho sobre el botón de la trama que desea enviar, esta se enviará directamente con una configuración automática por lo que el usuario no tendrá que configurarla y no se desplegará la ventana de configuración de la trama a enviar.
+  
+## Representación de las tramas intercambiadas
+
+Una vez se han intercambiado una serie de tramas entre las 2 estaciones fisicamente conectadas, se representará en la ventana de la estación correspondiente la información de las tramas intercambiadas.
+
+### Sección de tablas
+
+Cada vez que una estación **envía** una trama, se actualiza la ***tabla de las tramas enviadas*** con la información de la trama enviada.  
+En la siguiente imagen, se muestra el contenido de la tabla de las tramas enviadas tras enviarse una trama:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/8f53c67b-7b15-43c9-b71a-50ba33ea62dd">
+</p>
+
+Cada vez que una estación **recibe** una trama, se actualiza la ***tabla de las tramas recibidas*** con la información de la trama recibida.  
+En la siguiente imagen, se muestra el contenido de la tabla de las tramas recibidas tras recibirse una trama:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/e5a3bd6c-d987-4655-ab71-4914ea98121e">
+</p>
+
+**Nota**: Las tramas enviadas se representan de color negro y las tramas recibidas se representan de color azul.
+
+En las **tablas**, se muestra la siguiente información sobre las tramas:
+
+- Instante temporal en el que se ha enviado la trama. 
+- Tipo de trama enviada. 
+- Dirección de la estación a la que va dirigida la trama o que responde en el caso de que la trama sea una respuesta. 
+- Número de secuencia (NS) de la trama enviada. 
+- Estado del bit de sondeo. 
+- Número de trama esperada (NR) por la estación. 
+  
+### Sección gráfica
+
+Cada vez que una estación **envía** o **recibe** una trama, se actualizará la sección gráfica de la ventana de la estación con información de la trama enviada/recibida.  
+
+En la siguiente imagen, se muestra el contenido de la sección gráfica tras realizarse el intercambio de una trama desde el punto de vista de las 2 estaciones:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/17fab50b-1bfd-4fe8-8a57-50cc779bcd5f">
+</p>
+
+**Nota**: Las tramas enviadas se representan de color azul y apuntan hacia la derecha mientras que las tramas recibidas se representan de color verde y apuntan a la izquierda.
+
+En la **sección gráfica**, se muestra la siguiente información sobre las tramas:
+
+- Dirección de la estación a la que va dirigida la trama o que responde en el caso de que la trama sea una respuesta. 
+- Tipo de trama enviada. 
+- Estado del bit de sondeo (solo se muestra si está activo). 
+- Número de secuencia de la trama enviada (solo en tramas que tienen número de secuencia). 
+- Número de trama esperada por la estación situada en el otro extremo (solo en tramas que tienen número de trama esperada). 
