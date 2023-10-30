@@ -583,5 +583,98 @@ El usuario puede enviar cualquier trama a la estación situada en el otro extrem
 
 De esta manera, se enviará directamente la trama elegida con una configuración automática por lo que el usuario no tendrá que configurarla y no se desplegará la ventana de configuración de la trama a enviar.
 
+### Símbolos para los timeouts
 
+Si la estación se encuentra en el modo de trabajo semiautomático, en la sección de **información básica** de la estación, se muestran con **círculos** de distintos colores los timeouts que estan activados en la estación en cada momento.
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/b1d8bee0-1413-49b3-92f1-dac91fe69b4b">
+</p>
+
+El significado de cada círculo es el siguiente:
+
+- El **círculo azul** representa la activación del ***timeout ante COMMAND***. 
+- El **círculo verde** representa la activación del ***timeout ante trama I***. 
+- El **círculo rojo** representa la activación del ***timeout ante REQUEST***. 
+
+### Símbolo para el modo de trabajo de la estación
+
+En la sección de **información básica** de la estación, junto a los símbolos de los timeouts, se muestra a través de un símbolo el modo de trabajo de la estación.
+
+Si la estacíon se encuentra en modo ***semiautomático***, se mostrará el siguiente símbolo:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/5aa3f211-eed6-4297-adfb-9796aaf666a0">
+</p>
+
+Si la estacíon se encuentra en modo ***manual***, se mostrará el siguiente símbolo:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/ed8d6c77-a104-4f09-b213-dd90645c8595">
+</p>
+
+### Guardar imagen del tráfico intercambiado entre estaciones
+
+El usuario tiene la posibilidad de guardar la información de un intercambio de tramas entre 2 estaciones fisicamente conectadas en formato de **imagen**. 
+
+Para ello, se debe pulsar una botón con una cámara situado en la esquina superior derecha de la sección gráfica de la ventana de la estación.
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/e4ca15e2-f73a-4f3f-8f53-e59aaf0d4f67">
+</p>
+
+Al pulsar el botón, se desplegará una ventana de exploración en la que se podrá editar el nombre la imagen de la captura de tráfico que se desea guardar así como su ubicación. Esta ventana tiene el siguiente aspecto:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/720e0b4d-5cf6-465a-aa02-1e2b5f0c541c">
+</p>
+
+Una vez se ha establecido el nombre de la captura de tráfico así como la ubicación en la que se desea guardar la captura, se deberá pulsar el botón de "*Guardar*" situado en la parte inferior de la ventana. 
+
+La imagen con el contenido de la captura de tráfico, tendrá el siguiente aspecto:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/d1fa7eab-0bb2-4a93-b9c7-5b5998045266">
+</p>
+
+Como se puede observar, la imagen de la captura de tráfico es similar al contenido de la sección gráfica de la estación en el momento de realizar el guardado de la captura de tráfico.
+
+### Situación de la estación (significado)
+
+La situación de la estación hace referencia al "estado" en el que se encuentra la estación. Esta información se muestra en un recuadro en la parte inferior de la ventana de la estación.
+
+Existen 5 tipos de situaciones para la estación:
+
+- **Desconectado**: La estación no está conectada por lo que no puede intercambiar tramas de información con otra estación. Sin embargo, sí existe una conexión física entre ambas estaciones.
+- **Conectado**: La estación está conectada por lo que puede intercambiar tramas de información con otra estación.  
+- **Inicio conexión**: Se ha iniciado el proceso de establecimiento de conexión entre las tramas. Se ha enviado/recibido la solicitud de conexión (SABM) pero no se ha respondido a dicha solicitud de conexión. 
+- **Inicio desconexión**: Se ha iniciado el proceso de establecimiento de desconexión entre las tramas. Se ha enviado/recibido la solicitud de desconexión (DISC) pero no se ha respondido a dicha solicitud de desconexión. 
+- **Excepción**: Se ha producido un error irrecuperable en la transmisión y es necesario un restablecimiento del enlace a través de una trama FRMR.
+
+### Modos de vista de la estación
+
+La ventana de la estación cuenta con mucha información y abarca mucho espacio en la pantalla, por lo que se han diseñado 2 tipos de modos de vista para la estación, de forma que el usuario pueda elegir dicho modo de vista.
+
+Existen 2 modos de vista:
+
+- **Modo de vista gráfico**: Este modo incluye la sección gráfica donde se representa gráficamente las tramas intercambiadas por la estación. Este es el modo utilizado por defecto.
+- **Modo de vista lectura**: Este modo oculta la sección gráfica y aumenta el tamaño de las tablas de tramas enviadas y recibidas.
+
+Para cambiar de un modo de vista a otro, se debe pulsar una botón con forma de gráfico o libro (dependiendo del modo en el que se encuentre la estación) situado en la esquina inferior izquierda:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/754aad5e-109e-454c-9a87-fc73fa1322e4">
+</p>
+
+La ventana de la estación en el modo de vista gráfico tiene el siguiente aspecto:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/aaa1b807-1b73-4e26-b956-4d912961e28b">
+</p>
+
+La ventana de la estación en el modo de vista lectura tiene el siguiente aspecto:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/e8e000f2-aaeb-40f3-b9a8-6f194f97c8c6">
+</p>
 
