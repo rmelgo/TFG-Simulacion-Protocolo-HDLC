@@ -292,9 +292,7 @@ Una vez se ha establecido una conexión física entre 2 estaciones, el siguiente
   - La posibilidad de enviar una trama errónea.
  
 - **Paso 4**: Enviar la trama. Para ello, se deberá pulsar el botón “*Enviar*” para enviar la trama a la estación situada en el otro extremo. 
-
-**Nota**: Si el usuario hace click derecho sobre el botón de la trama que desea enviar, esta se enviará directamente con una configuración automática por lo que el usuario no tendrá que configurarla y no se desplegará la ventana de configuración de la trama a enviar.
-  
+ 
 ## Representación de las tramas intercambiadas
 
 Una vez se han intercambiado una serie de tramas entre las 2 estaciones fisicamente conectadas, se representará en la ventana de la estación correspondiente la información de las tramas intercambiadas.
@@ -538,8 +536,52 @@ Al hacer esto, el simulador automaticamente representará la información de las
   <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/f8b8d26f-e279-4afd-8cc0-4ea88093abdb">
 </p>
 
+## Envío y representación de tramas erróneas
 
+En el simulador del protocolo HDLC, es posible enviar **tramas de información erróneas** y configurar el canal de comunicación que tenga una determinada tasa de error, tal como se ha visto anteriormente.
 
+Para enviar una **trama de información errónea**, se debe activar el *CheckBox* de trama errónea en la ventana de configuración de la trama de información a enviar. Esto se muestra en la siguiente figura:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/961fdb58-2cb7-4a93-bab8-a2691e6e006a">
+</p>
+
+Cuando se produce el envío de una trama errónea, la representación de dicha trama será la que se muestra en la siguiente ventana:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/4997398e-6c58-445d-abaf-7df9617b602b">
+</p>
+
+Por un lado, en la ***tabla de tramas enviadas***, la trama errónea se respresenta de color rojo. Por otro lado, en la ***sección gráfica*** se representa la trama errónea enviada con una flecha de color rojo.
+
+A diferencia del resto de tramas, tanto en las tablas de tramas enviadas/recibidas como en la sección gráfica solo se representa la siguiente información sobre las tramas erróneas:
+
+- Tipo de trama
+- Instante temporal en el que se ha producido el envío/recepción (solo en las tablas)
+
+## Mecanismos de ayuda
+
+El simulador, al tratar un tema complejo como es el protocolo HDLC, cuenta con una gran infraestructura de sistemas de ayuda que permitan al usuario comprender el uso de la herramienta y del protocolo HDLC.
+
+Estos mecanismos de ayuda consisten en **botones azules** con el símbolo ***?***. Al pulsar sobre un botón de ayuda, se desplegará una **bocadillo** con una explicación de la sección, parámetro o funcionalidad al que pertenezca dicha ayuda. 
+
+En la siguiente imagen, se muestra un ejemplo de ayuda:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/d9472c8a-ce8d-429b-9360-35e79a958fcc">
+</p>
+
+Para ocultar el bocadillo de ayuda, bastará con hacer click de nuevo en el botón de ayuda o en cualquier parte de la ventana fuera del bocadillo de ayuda.
+
+## Funcionalidades adicionales
+
+El simulador cuenta con una serie de funcionalidades adicionales, las cuales, a pesar de tener menos importancia, pueden tener un gran impacto y ser de gran ayuda para el usuario.
+
+### Envío directo de tramas
+
+El usuario puede enviar cualquier trama a la estación situada en el otro extremo de la conexión de **manera directa**, evitando la configuración previa de la trama. Para ello, se debe hacer ***click derecho*** sobre el botón de la trama que desea enviar.
+
+De esta manera, se enviará directamente la trama elegida con una configuración automática por lo que el usuario no tendrá que configurarla y no se desplegará la ventana de configuración de la trama a enviar.
 
 
 
