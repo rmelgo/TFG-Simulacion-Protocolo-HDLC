@@ -473,4 +473,73 @@ Al realizar esta acción, se desplegará la siguiente ventana:
   <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/fdf76a4f-ac0a-496a-a5b6-fe487b8fdba1">
 </p>
 
+## Guardar captura de tráfico de las tramas intercambiadas
+
+Al realizar un intercambio de tramas entre 2 estaciones fisicamente conectadas, es posible guardar la información de dicho intercambio de tramas (*captura de tráfico*) en un fichero para posteriormente ser cargado y utilizado de nuevo. 
+
+Para ello, se debe hacer click a un botón con un disquete que se encuentra en la esquina superior derecha.
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/3da64864-4a84-4942-9ce9-d4d8d28b7513">
+</p>
+
+Al pulsar el botón, se desplegará una ventana de exploración en la que se podrá editar el nombre de la captura de tráfico que se desea guardar así como su ubicación. Esta ventana tiene el siguiente aspecto:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/add121cd-51a4-4283-aadf-4b77a0a070a9">
+</p>
+
+Una vez se ha establecido el nombre de la captura de tráfico así como la ubicación en la que se desea guardar la captura, se deberá pulsar el botón de "*Guardar*" situado en la parte inferior de la ventana. 
+Al realizar esta acción, se desplegará la siguiente ventana:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/f8cb56e8-59cf-4d1d-abf1-3ba5a0c3ff88">
+</p>
+
+Al realizar el guardado de una captura de tráfico, se generarán 2 ficheros:
+
+- Un fichero llamado ***nombre-captura.txt*** que contiene la información del intercambio de tramas desde la perspectiva de la estación desde la cual se solicito el guardado de la captura de tráfico.
+- Un fichero llamado ***nombre-captura.txt (2)*** que contiene la información del intercambio de tramas desde la perspectiva de la estación contraria situada al otro extremo de la conexión.
+
+Estos 2 ficheros son necesarios e indispensables para posteriormente poder cargar la captura de tráfico guardada. Debido a esto, si posteriormente se desea cargar la captura de tráfico, es imprescindible realizar el guardado de la captura de tráfico mientras las estaciones se encuentran **fisicamente conectadas**. 
+
+Es posible guardar la captura de tráfico después de finalizar la conexión física. Sin embargo, en este caso solo se generará el primer fichero y por tanto, no se podrá realizar posteriormente el cargado de dicha captura de tráfico.
+
+## Cargar captura de tráfico de las tramas intercambiadas
+
+En el simulador, es posible cargar una *captura de tráfico* con información del intercambio de tramas entre 2 estaciones, previamente guardado a través de la aplicación.
+
+Para ello, se debe hacer click a un botón con un fichero que se encuentra en la esquina superior derecha.
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/dd6d88fa-5545-49de-8469-cddcd9c4c417">
+</p>
+
+Al pulsar el botón, se desplegará una ventana de exploración en la que se podrá navegar y seleccionar la captura de tráfico que se desea cargar en el simulador. Esta ventana tiene el siguiente aspecto:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/0483034b-cbb2-4ab5-ae8f-236425e45ca0">
+</p>
+
+Una vez se ha seleccionado la captura de tráfico que se desea cargar, se deberá pulsar el botón de "*Abrir*" situado en la parte inferior de la ventana. 
+Al hacer esto, el simulador automaticamente representará la información de las tramas que formaban parte de la captura de tráfico.
+
+**Restricciones en la carga de una captura de tráfico**
+
+- A diferencia del guardado, para cargar una captura de tráfico es imprescindible que la estación en la que se realice el cargado de la captura de tráfico se encuentre ***fisicamente conectada*** con otra estación. Si no se cumple esta restricción, al realizar el cargado de la captura de tráfico se mostrará la siguiente ventana:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/1d43bd4e-3df6-42e2-93bb-db440ce9166c">
+</p>
+
+- También es imprescindible que el nombre de la estación que realizo previamente el guardado de la captura de tráfico debe ***coincidir*** con el nombre de la estación que realiza la carga de la captura de tráfico. Si no se cumple esta restricción, al realizar el cargado de la captura de tráfico se mostrará la siguiente ventana:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/f8b8d26f-e279-4afd-8cc0-4ea88093abdb">
+</p>
+
+
+
+
+
 
