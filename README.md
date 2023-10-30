@@ -340,4 +340,122 @@ En la **sección gráfica**, se muestra la siguiente información sobre las tram
 - Tipo de trama enviada. 
 - Estado del bit de sondeo (solo se muestra si está activo). 
 - Número de secuencia de la trama enviada (solo en tramas que tienen número de secuencia). 
-- Número de trama esperada por la estación situada en el otro extremo (solo en tramas que tienen número de trama esperada). 
+- Número de trama esperada por la estación situada en el otro extremo (solo en tramas que tienen número de trama esperada).
+
+## Visualización del detalle de una trama 
+
+Es posible ver el detalle de la composición de cada una de las tramas intercambiadas por una estación. Para acceder a la composición detallada de una trama se tienen 2 vías:
+
+- **Vía 1**: A través de la ***tabla de tramas enviadas/recibidas de la estación***, haciendo click en la trama correspondiente.
+- **Vía 2**: A través de la ***sección gráfica de la estación***, haciendo click en el sobre asociado a la trama correspondiente.
+
+Al acceder a la composición detallada de una trama, se desplegará una nueva ventana en el que se mostrará la información detallada de la trama seleccionada. Existen 3 tipos de tramas en función de su composición:
+
+- Tramas no numerada
+- Tramas de información
+- Tramas de supervisión
+
+De esta manera, en función del tipo de trama, se desplegará una ventana diferente para representar la composición detallada de la trama. 
+
+## Visualización del detalle de una trama no numerada
+
+La composición detallada de una trama no numerada, se mostrará en una ventana con el siguiente aspecto:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/5b5cfd7d-87ae-4c59-bde1-a38f1c83ff92">
+</p>
+
+En esta ventana, se muesta la siguiente información:
+
+- **Tipo de trama**
+- **Información básica sobre la trama**
+  
+  - El bit C/R 
+  - El número de secuencia (NS) 
+  - El bit P/F 
+  - El número de trama esperada (NR)
+    
+- **Información sobre los campos genéricos de la trama**
+  
+  - Flag inicial 
+  - Campo de dirección 
+  - Campo de control 
+  - Campo de información 
+  - Código de redundancia cíclica (CRC) 
+  - Flag final
+ 
+- **Información sobre el campo de control de la trama**
+
+  - Primer bit con valor 1 por defecto 
+  - Segundo bit con valor 1 por defecto 
+  - Tipo de trama no numerada (bits 3, 4, 6, 7, 8) 
+  - Estado del bit P/F (bit 5) 
+
+## Visualización del detalle de una trama de información
+
+La composición detallada de una trama de información, se mostrará en una ventana con el siguiente aspecto:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/4639a29d-161d-458e-893d-bdb248d66a70">
+</p>
+
+En esta ventana, se muesta la siguiente información:
+
+- **Tipo de trama**
+- **Información básica sobre la trama**
+  
+  - El bit C/R 
+  - El número de secuencia (NS) 
+  - El bit P/F 
+  - El número de trama esperada (NR)
+    
+- **Información sobre los campos genéricos de la trama**
+  
+  - Flag inicial 
+  - Campo de dirección 
+  - Campo de control 
+  - Campo de información 
+  - Código de redundancia cíclica (CRC) 
+  - Flag final
+ 
+- **Información sobre el campo de control de la trama**
+
+  - Primer bit con valor 0 por defecto 
+  - Número de secuencia (bits 2, 3, 4) 
+  - Estado del bit P/F (bit 5) 
+  - Número de trama esperada (bits 6, 7, 8)
+ 
+  ## Visualización del detalle de una trama de supervisión
+
+La composición detallada de una trama de supervisión, se mostrará en una ventana con el siguiente aspecto:
+
+<p align="center">
+  <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/fc0d296d-e021-4ffd-81f9-a942eee110ee">
+</p>
+
+En esta ventana, se muesta la siguiente información:
+
+- **Tipo de trama**
+- **Información básica sobre la trama**
+  
+  - El bit C/R 
+  - El número de secuencia (NS) 
+  - El bit P/F 
+  - El número de trama esperada (NR)
+    
+- **Información sobre los campos genéricos de la trama**
+  
+  - Flag inicial 
+  - Campo de dirección 
+  - Campo de control 
+  - Campo de información 
+  - Código de redundancia cíclica (CRC) 
+  - Flag final
+ 
+- **Información sobre el campo de control de la trama**
+
+  - Primer bit con valor 1 por defecto 
+  - Segundo bit con valor 0 por defecto 
+  - Tipo de trama de supervisión (bits 3, 4) 
+  - Estado del bit P/F (bit 5) 
+  - Número de trama esperada (bits 6, 7, 8)
