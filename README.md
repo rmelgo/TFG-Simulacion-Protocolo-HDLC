@@ -79,7 +79,9 @@ En esta sección del proyecto, se adjuntarán una serie de ficheros que forman p
   - Un fichero llamado ***Imagen_Captura_Tráfico.png*** con un ejemplo de captura de tráfico guardado como imagen.
   - Un par de ficheros ***prueba_captura.txt*** y ***prueba_captura.txt (2)*** que contiene información sobre una captura de tráfico desde el punto de vista de las 2 máquinas involucradas en el enlace.
  
-- Una carpeta llamada ***Simulador HDLC - Proyecto WPF completo.zip*** que contiene el proyecto WPF completo con la implementación del simulador del protocolo HDLC con todas las clases involucradas.
+- Una carpeta llamada ***Simulador HDLC - Proyecto WPF completo*** que contiene el proyecto WPF completo con la implementación del simulador del protocolo HDLC con todas las clases involucradas.
+
+Nota: En la carpeta ***Simulador HDLC - Proyecto WPF completo***, la subcarpeta **obj** se encuentra comprimida en zip por motivos de almacenamiento en GitHub.
 
 # - Estructura de la aplicación
 
