@@ -4,13 +4,13 @@
 
 # - Introducción
 
-Proyecto realizado en la asignatura de Trabajo de Fin de Grado del grado de Ingenieria Informática de la Universidad de Salamanca. El enunciado del proyecto se encuentra subido en el repositorio en un archivo pdf llamado <a href="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/blob/main/Propuesta%20TFG.pdf" target="_blank">*Propuesta TFG.pdf*</a>. 
+Proyecto realizado en la asignatura de ***Trabajo de Fin de Grado*** del grado de Ingenieria Informática de la Universidad de Salamanca. El enunciado del proyecto se encuentra subido en el repositorio en un archivo PDF llamado <a href="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/blob/main/Propuesta%20TFG.pdf" target="_blank">*Propuesta TFG.pdf*</a>. 
   
 El principal objetivo de este proyecto es la realización de una aplicación de escritorio que implemente el protocolo de control de enlace de datos de alto nivel (HDLC).
-El desarrrollo de esta herramienta esta principalmente enfocada en su uso en la asignatura de Redes de Computadores I del grado de Ingeniería Informática con el propósito de ser utilizada con fines didácticos.
+El desarrrollo de esta herramienta está principalmente enfocada en su uso en la asignatura de **Redes de Computadores I** del grado de Ingeniería Informática con el propósito de ser utilizada con fines didácticos.
 Para el desarrollo de este proyecto, se permite total libertad a la hora de elegir el entorno de desarrollo en el que se construirá el proyecto.
 
-Al tratarse de un Trabajo de Fin de Grado, el desarrollo no se basará exclusivamente en la cosntrucción de un producto software, si no que se realizaran exhautivos trabajos de investigación, análisis, diseño, documentación, planificación, etc.
+Al tratarse de un **Trabajo de Fin de Grado**, el desarrollo no se basará exclusivamente en la cosntrucción de un producto software, si no que se realizarán exhautivos trabajos de investigación, análisis, diseño, documentación, planificación, etc.
 
 # - Comentarios sobre el entorno de desarrollo
 
@@ -26,14 +26,14 @@ El material adjuntado para la realización de este proyecto es tan amplia, que s
 
 ## Material teórico
 
-En esta sección del proyecto, se adjuntarán una serie de documentos con distintos aspectos relevantes para la construcción del simulador del protocolo HDLC. Estos documentos se encuentran dentro de la carpeta de **Documentación** que se encuentra en el repositorio. Esta carpeta contiene los siguientes documentos:
+En esta sección del proyecto, se adjuntarán una serie de documentos con distintos aspectos relevantes para la construcción del simulador del protocolo HDLC. Estos documentos, se encuentran dentro de la carpeta de **Documentación** que se encuentra en el repositorio. Esta carpeta contiene los siguientes documentos:
 
-- Un documento llamado ***Memoria TFG.pdf*** en el que se establece una *memoria general* del proyecto desarrollada. Esta memoria incluye:
+- Un documento llamado ***Memoria TFG.pdf*** en el que se establece una *memoria general* del proyecto desarrollado. Esta memoria incluye:
 
   - Los objetivos a cumplir en el desarrollo del proyecto
   - Los conceptos teóricos fundamentales del protocolo HDLC
   - Trabajos relacionados
-  - Métodologias, técnicas y herramientas utilizadas
+  - Metodologías, técnicas y herramientas utilizadas
   - Aspectos relevantes del desarrollo del proyecto (ciclo de vida)
   - Conclusiones y líneas futuras
     
@@ -73,9 +73,9 @@ En esta sección del proyecto, se adjuntarán una serie de ficheros que forman p
 
   - Un fichero llamado ***Simulador HDLC.exe** el cual se trata de un fichero ejecutable que contiene la implementación del simulador HDLC.
   - Un fichero llamado ***Simulador HDLC.exe.config** que contiene una serie de configuraciones necesarias para ejecutar correctamente el simulador.
-  - Un fichero llamado ***Simulador HDLC.pdb*** que contiene información de depuración sobre la ejeución del simulador.
-  - Un fichero llamado ***Newtonsoft.Json.dll*** el cual se trata de una libreria de enlazado dinámico con funciones necesarias para el manejo de objetos JSON, los cuales son utilizados por el simulador.
-  - Un fichero llamado ***Newtonsoft.Json.xml*** que contiene información sobre el contenido de la libreria de enlazado dinámico ***Newtonsoft.Json.dll***.
+  - Un fichero llamado ***Simulador HDLC.pdb*** que contiene información de depuración sobre la ejecución del simulador.
+  - Un fichero llamado ***Newtonsoft.Json.dll*** el cual se trata de una librería de enlazado dinámico con funciones necesarias para el manejo de objetos *JSON*, los cuales son utilizados por el simulador.
+  - Un fichero llamado ***Newtonsoft.Json.xml*** que contiene información sobre el contenido de la librería de enlazado dinámico ***Newtonsoft.Json.dll***.
   - Un fichero llamado ***Imagen_Captura_Tráfico.png*** con un ejemplo de captura de tráfico guardado como imagen.
   - Un par de ficheros ***prueba_captura.txt*** y ***prueba_captura.txt (2)*** que contiene información sobre una captura de tráfico desde el punto de vista de las 2 máquinas involucradas en el enlace.
  
@@ -113,7 +113,7 @@ Al abrir el fichero ***Simulador HDLC.exe***, inicialmente se presentará una ve
 
 La ventana principal se agrupa en 3 secciones principales:
 
-- Una sección que contiene **información básica** sobre la estación. En concreto se muestra la siguiente información:
+- Una sección que contiene **información básica** sobre la estación. En concreto, se muestra la siguiente información:
   
   - Nombre de la estación
   - Modo de funcionamiento (Semiautomático o manual)
@@ -129,7 +129,7 @@ La ventana principal se agrupa en 3 secciones principales:
   - Estado del bit de poll (P/F)
   - Número de trama esperada (NR)
 
-- Una sección en la que se **representa graficamente información sobre las tramas enviadas y recibidas por la estación**. En concreto, se muestra la siguiente información sobre cada trama:
+- Una sección en la que se **representa gráficamente información sobre las tramas enviadas y recibidas por la estación**. En concreto, se muestra la siguiente información sobre cada trama:
 
   - Dirección a la que va dirigida la trama (si es un comando) o dirección de origen de la trama (si es una respuesta)
   - Tipo de trama
@@ -188,8 +188,8 @@ La sección de la configuración del modo de trabajo de la estación tiene el si
 
 La estación tiene 2 modos de trabajo en los que la estación puede funcionar:
 
-  - **Modo semiautomático**: La estación responde de manera automática en algunas situaciones. En el manual de usuario y en los sistemas de ayuda se detallan en que situciones se producen respuestas automáticas. También se aplicarán los timeouts configurados en la sección de protocolo y se permitira el envío de tramas erróneas.
-  - **Modo manual**: La estación no responde de manera automática en ninguna situación. Tampoco se aplicarán los timeouts configurados en la sección de protocolo y ni se permitira el envío de tramas erróneas.
+  - **Modo semiautomático**: La estación responde de manera automática en algunas situaciones. En el manual de usuario y en los sistemas de ayuda se detallan en qué situciones se producen respuestas automáticas. También se aplicarán los timeouts configurados en la sección de protocolo y se permitira el envío de tramas erróneas.
+  - **Modo manual**: La estación no responde de manera automática en ninguna situación. Tampoco se aplicarán los timeouts configurados en la sección de protocolo y ni se permitirá el envío de tramas erróneas.
 
 ### Configuración del canal de transmisión de la estación
 
@@ -228,7 +228,7 @@ El principal objetivo del simulador es establecer una conexión física entre 2 
 
 De esta manera, para establecer una conexión física deben ejecutarse 2 estaciones y se deben seguir los siguientes pasos:
 
-- **Paso 1**: Configurar los nombres de las estaciones que se van a conectar fisicamente de manera que las estaciones que se vayan a conectar tengan un nombre de estación distinto.
+- **Paso 1**: Configurar los nombres de las estaciones que se van a conectar fisícamente de manera que las estaciones que se vayan a conectar tengan un nombre de estación distinto.
 
   Si las 2 estaciones que se van a conectar tienen el mismo nombre se producirá un error y se desplegará una ventana como la que se muestra en la siguiente imagen:
 
@@ -262,7 +262,7 @@ Una vez se ha establecido una conexión física entre 2 estaciones, el siguiente
 
 - **Paso 1**: Elegir el tipo de trama que se desea enviar.
 
-  En la parte superior de la ventana principal existe una serie de botones con los diferentes tipos de trama que pueden enviarse. Estos botones solo se activan cuando se ha establecido una conexión física con otra estación.
+  En la parte superior de la ventana principal, existen una serie de botones con los diferentes tipos de trama que pueden enviarse. Estos botones solo se activan cuando se ha establecido una conexión física con otra estación.
 
   <p align="center">
     <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/01d90398-6055-46e1-b3df-4e7d16c81733">
@@ -297,7 +297,7 @@ Una vez se ha establecido una conexión física entre 2 estaciones, el siguiente
  
 ## Representación de las tramas intercambiadas
 
-Una vez se han intercambiado una serie de tramas entre las 2 estaciones fisicamente conectadas, se representará en la ventana de la estación correspondiente la información de las tramas intercambiadas.
+Una vez se han intercambiado una serie de tramas entre las 2 estaciones físicamente conectadas, se representará en la ventana de la estación correspondiente la información de las tramas intercambiadas.
 
 ### Sección de tablas
 
@@ -466,7 +466,7 @@ En esta ventana, se muesta la siguiente información:
 
 ## Fin del establecimiento de la conexión
 
-Una vez se ha realizado el intercambio correspondiente de tramas entre 2 estaciones fisicamente conectadas y se desea poner fin a dicha conexión física, se deberá pulsar el botón de "*Finalizar*" situado en la parte inferior de la ventana principal. 
+Una vez se ha realizado el intercambio correspondiente de tramas entre 2 estaciones físicamente conectadas y se desea poner fin a dicha conexión física, se deberá pulsar el botón de "*Finalizar*" situado en la parte inferior de la ventana principal. 
 Al realizar esta acción, se desplegará la siguiente ventana:
 
 <p align="center">
@@ -475,7 +475,7 @@ Al realizar esta acción, se desplegará la siguiente ventana:
 
 ## Guardar captura de tráfico de las tramas intercambiadas
 
-Al realizar un intercambio de tramas entre 2 estaciones fisicamente conectadas, es posible guardar la información de dicho intercambio de tramas (*captura de tráfico*) en un fichero para posteriormente ser cargado y utilizado de nuevo. 
+Al realizar un intercambio de tramas entre 2 estaciones físicamente conectadas, es posible guardar la información de dicho intercambio de tramas (*captura de tráfico*) en un fichero para posteriormente ser cargado y utilizado de nuevo. 
 
 Para ello, se debe hacer click a un botón con un disquete que se encuentra en la esquina superior derecha.
 
@@ -498,10 +498,10 @@ Al realizar esta acción, se desplegará la siguiente ventana:
 
 Al realizar el guardado de una captura de tráfico, se generarán 2 ficheros:
 
-- Un fichero llamado ***nombre-captura.txt*** que contiene la información del intercambio de tramas desde la perspectiva de la estación desde la cual se solicito el guardado de la captura de tráfico.
+- Un fichero llamado ***nombre-captura.txt*** que contiene la información del intercambio de tramas desde la perspectiva de la estación desde la cual se solicitó el guardado de la captura de tráfico.
 - Un fichero llamado ***nombre-captura.txt (2)*** que contiene la información del intercambio de tramas desde la perspectiva de la estación contraria situada al otro extremo de la conexión.
 
-Estos 2 ficheros son necesarios e indispensables para posteriormente poder cargar la captura de tráfico guardada. Debido a esto, si posteriormente se desea cargar la captura de tráfico, es imprescindible realizar el guardado de la captura de tráfico mientras las estaciones se encuentran **fisicamente conectadas**. 
+Estos 2 ficheros son necesarios e indispensables para posteriormente poder cargar la captura de tráfico guardada. Debido a esto, si posteriormente se desea cargar la captura de tráfico, es imprescindible realizar el guardado de la captura de tráfico mientras las estaciones se encuentran **físicamente conectadas**. 
 
 Es posible guardar la captura de tráfico después de finalizar la conexión física. Sin embargo, en este caso solo se generará el primer fichero y por tanto, no se podrá realizar posteriormente el cargado de dicha captura de tráfico.
 
@@ -522,17 +522,17 @@ Al pulsar el botón, se desplegará una ventana de exploración en la que se pod
 </p>
 
 Una vez se ha seleccionado la captura de tráfico que se desea cargar, se deberá pulsar el botón de "*Abrir*" situado en la parte inferior de la ventana. 
-Al hacer esto, el simulador automaticamente representará la información de las tramas que formaban parte de la captura de tráfico.
+Al hacer esto, el simulador automáticamente representará la información de las tramas que formaban parte de la captura de tráfico.
 
 **Restricciones en la carga de una captura de tráfico**
 
-- A diferencia del guardado, para cargar una captura de tráfico es imprescindible que la estación en la que se realice el cargado de la captura de tráfico se encuentre ***fisicamente conectada*** con otra estación. Si no se cumple esta restricción, al realizar el cargado de la captura de tráfico se mostrará la siguiente ventana:
+- A diferencia del guardado, para cargar una captura de tráfico es imprescindible que la estación en la que se realice el cargado de la captura de tráfico se encuentre ***físicamente conectada*** con otra estación. Si no se cumple esta restricción, al realizar el cargado de la captura de tráfico, se mostrará la siguiente ventana:
 
 <p align="center">
   <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/1d43bd4e-3df6-42e2-93bb-db440ce9166c">
 </p>
 
-- También es imprescindible que el nombre de la estación que realizo previamente el guardado de la captura de tráfico debe ***coincidir*** con el nombre de la estación que realiza la carga de la captura de tráfico. Si no se cumple esta restricción, al realizar el cargado de la captura de tráfico se mostrará la siguiente ventana:
+- También es imprescindible que el nombre de la estación que realizó previamente el guardado de la captura de tráfico debe ***coincidir*** con el nombre de la estación que realiza la carga de la captura de tráfico. Si no se cumple esta restricción, al realizar el cargado de la captura de tráfico, se mostrará la siguiente ventana:
 
 <p align="center">
   <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/f8b8d26f-e279-4afd-8cc0-4ea88093abdb">
@@ -577,7 +577,7 @@ Para ocultar el bocadillo de ayuda, bastará con hacer click de nuevo en el bot�
 
 ## Funcionalidades adicionales
 
-El simulador cuenta con una serie de funcionalidades adicionales, las cuales, a pesar de tener menos importancia, pueden tener un gran impacto y ser de gran ayuda para el usuario.
+El simulador cuenta con una serie de funcionalidades adicionales, las cuales, a pesar de tener menor importancia, pueden tener un gran impacto y ser de gran ayuda para el usuario.
 
 ### Envío directo de tramas
 
@@ -617,7 +617,7 @@ Si la estacíon se encuentra en modo ***manual***, se mostrará el siguiente sí
 
 ### Guardar imagen del tráfico intercambiado entre estaciones
 
-El usuario tiene la posibilidad de guardar la información de un intercambio de tramas entre 2 estaciones fisicamente conectadas en formato de **imagen**. 
+El usuario tiene la posibilidad de guardar la información de un intercambio de tramas entre 2 estaciones físicamente conectadas en formato de **imagen**. 
 
 Para ello, se debe pulsar una botón con una cámara situado en la esquina superior derecha de la sección gráfica de la ventana de la estación.
 
@@ -680,3 +680,8 @@ La ventana de la estación en el modo de vista lectura tiene el siguiente aspect
   <img src="https://github.com/rmelgo/TFG-Simulacion-Protocolo-HDLC/assets/145989723/e8e000f2-aaeb-40f3-b9a8-6f194f97c8c6">
 </p>
 
+# - Participantes
+
+<table>
+  <td align="center"><a href="https://github.com/rmelgo"><img src="https://avatars.githubusercontent.com/u/145989723?s=400&u=e5c06adba3f3c418207178abc845d398b3d5f77f&v=4" width="100px;" alt=""/><br /><sub><b>Raúl Melgosa</b></sub></a><br/> 
+</table>
